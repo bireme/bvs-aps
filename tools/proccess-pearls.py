@@ -1,0 +1,206 @@
+#!/usr/bin/env python
+#! coding: utf-8
+
+import os, sys, codecs
+from BeautifulSoup import BeautifulSoup
+from slugify import slugify
+import json
+
+headers = {
+	'Questão clínica': 'questao_clinica',
+	'Resposta baseada em evidência': 'resposta_baseada_em_evidencia',
+	'Alertas': 'alertas',
+	'Contexto': 'contexto',
+	'Número, Data de publicação e autoria da PEARL': 'numero_data_autoria',
+	'Referência (estudo avaliado na PEARL - Cochrane Systematic Review)': 'referencia',
+	'Comentários sobre a aplicabilidade do estudo para APS no contexto do  SUS, sob o ponto de vista clínico, de gestão da saúde e para o público  em geral.': 'comentarios',
+	'Data de acesso à PEARL': 'data_de_acesso',
+	'Endereço de acesso à PEARL': 'endereco',
+
+	'Área temática que se aplica - BVS APS': '',
+	'Tipo de profissional ao qual se destina a informação': '',
+
+}
+
+# set up output encoding
+if not sys.stdout.isatty():
+    # here you can set encoding for your 'out.txt' file
+    sys.stdout = codecs.getwriter('utf8')(sys.stdout)
+
+if len(sys.argv) < 2:
+	print "use: ./proccess-pearls.py <file_to_proccess>"
+	sys.exit(1)
+
+FILE=sys.argv[1]
+
+file_content = ""
+with open(FILE) as handle:
+	file_content = handle.read()
+
+bs = BeautifulSoup(file_content, convertEntities=BeautifulSoup.HTML_ENTITIES)
+
+items = []
+for question in bs.findAll('item'):
+
+	title = question.find('title').string
+	id = question.find('wp:post_id').string
+
+	if not title:
+		continue
+
+	area_tematica = ""
+	for item in question.findAll('category'):
+		area_tematica += '<category domain="area-tematica" nicename="%s"><![CDATA[%s]]></category>' % (slugify(item.string).lower(), item.string)
+
+	postmeta = ""
+	tipo_profissional = ""
+	for item in question.find('content:encoded'):
+
+		content = item.string
+		bs2 = BeautifulSoup(content, convertEntities=BeautifulSoup.HTML_ENTITIES)
+
+		for item2 in bs2.findAll('h4'):
+			head = item2.string.encode('utf-8')
+			content = item2.nextSibling.string.replace('\r', '')
+			
+			# tipo de profissional
+
+			if 'Tipo de profissional' in head:
+				count = 0
+				if ';' in content:
+					for tipo in content.split(";"):
+						tipo_profissional += '<category domain="tipo-de-profissional" nicename="%s"><![CDATA[%s]]></category>' % (slugify(tipo).lower(), tipo)
+
+				for tipo in content.split("\n"):
+					if tipo:
+						tipo_profissional += '<category domain="tipo-de-profissional" nicename="%s"><![CDATA[%s]]></category>' % (slugify(tipo).lower(), tipo)				
+
+			if headers[head]:
+				postmeta += """<wp:postmeta>
+				<wp:meta_key>%s</wp:meta_key>
+				<wp:meta_value><![CDATA[%s]]></wp:meta_value>
+				</wp:postmeta>""" % (headers[head], content)
+
+			# print "'%s': ''," % head
+			# print "content: %s" % content
+			# print 
+			# print 
+
+	item = """
+	<item>
+		<title>%s</title>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		
+		<description></description>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>%s</wp:post_id>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name></wp:post_name>
+		<wp:status>draft</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>pearl</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_set_default_values</wp:meta_key>
+			<wp:meta_value><![CDATA[true]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_questao_clinica</wp:meta_key>
+			<wp:meta_value><![CDATA[field_53ceb0e8f169e]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_resposta_baseada_em_evidencia</wp:meta_key>
+			<wp:meta_value><![CDATA[field_53ceb105f169f]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_alertas</wp:meta_key>
+			<wp:meta_value><![CDATA[field_53ceb133f16a0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_contexto</wp:meta_key>
+			<wp:meta_value><![CDATA[field_53ceb13cf16a1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_referencia</wp:meta_key>
+			<wp:meta_value><![CDATA[field_53ceb1bf0fb88]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_comentarios</wp:meta_key>
+			<wp:meta_value><![CDATA[field_53ceb1e552aad]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_data_de_acesso</wp:meta_key>
+			<wp:meta_value><![CDATA[field_53ceb20cba0c6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_endereco</wp:meta_key>
+			<wp:meta_value><![CDATA[field_53ceb230ba0c7]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_numero_data_autoria</wp:meta_key>
+			<wp:meta_value>field_53cf22b89b452</wp:meta_value>
+		</wp:postmeta>
+
+		%s
+		%s
+		%s
+	</item>	
+	""" % (title, id, postmeta, area_tematica, tipo_profissional)
+
+	items.append(item)
+
+header = u"""
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a WordPress eXtended RSS file generated by WordPress as an export of your blog. -->
+<!-- It contains information about your blog's posts, comments, and categories. -->
+<!-- You may use this file to transfer that content from one site to another. -->
+<!-- This file is not intended to serve as a complete backup of your blog. -->
+
+<!-- To import this information into a WordPress blog follow these steps. -->
+<!-- 1. Log in to that blog as an administrator. -->
+<!-- 2. Go to Tools: Import in the blog's admin panels (or Manage: Import in older versions of WordPress). -->
+<!-- 3. Choose "WordPress" from the list. -->
+<!-- 4. Upload this file using the form provided on that page. -->
+<!-- 5. You will first be asked to map the authors in this export file to users -->
+<!--    on the blog.  For each author, you may choose to map to an -->
+<!--    existing user on the blog or to create a new user -->
+<!-- 6. WordPress will then import each of the posts, comments, and categories -->
+<!--    contained in this file into your blog -->
+
+<!-- generator="WordPress/3.0.1" created="2014-07-22 18:58"-->
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.0/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.0/"
+>
+
+<channel>
+	<title>Pearls Telessaúde Brasil</title>
+	<link>http://www.bvsaps.dev</link>
+	<description>Revisões sistemáticas traduzidas ao português</description>
+	<pubDate>Thu, 28 Oct 2010 17:13:23 +0000</pubDate>
+	<generator>http://wordpress.org/?v=3.0.1</generator>
+	<language>en</language>
+	<wp:wxr_version>1.0</wp:wxr_version>
+	<wp:base_site_url>http://www.bvsaps.dev</wp:base_site_url>
+	<wp:base_blog_url>http://www.bvsaps.dev</wp:base_blog_url>
+			
+	<generator>http://wordpress.org/?v=3.0.1</generator>
+"""
+
+middle = ""
+count = 0
+for item in items: 
+	count += 1
+	middle += item
+
+	# if count == 10:	break
+
+footer = "</channel></rss>"
+
+print header + middle + footer
