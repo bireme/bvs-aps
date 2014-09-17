@@ -41,7 +41,7 @@ class acf
 		// vars
 		$this->settings = array(
 			'path'				=> apply_filters('acf/helpers/get_path', __FILE__),
-			'dir'				=> apply_filters('acf/helpers/get_dir', __FILE__),
+			'dir'				=> plugin_dir_url(__FILE__),
 			'hook'				=> basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ),
 			'version'			=> '4.3.8',
 			'upgrade_version'	=> '3.4.1',

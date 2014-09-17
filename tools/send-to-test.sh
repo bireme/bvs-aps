@@ -4,7 +4,8 @@ serv="crisfoto"
 ssh="ssh $serv"
 root="/home/moa/project/bvsaps"
 
-rsync -rav $root/htdocs/wp-content/* $serv:~/webapps/moacirmoda/tmp/bvsaps/wp-content
+rsync -rv $root/htdocs/wp-content/* $serv:~/webapps/moacirmoda/tmp/bvsaps/wp-content
+rsync -rv $root/git/wpdecs/wpdecs/* $serv:~/webapps/moacirmoda/tmp/bvsaps/wp-content/plugins/wpdecs
 
 cd $root/htdocs/
 wp db export /tmp/bvsaps-local.sql
