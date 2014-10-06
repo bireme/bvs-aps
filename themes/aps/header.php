@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" <?php language_attributes(); ?>>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><?php wp_title('|', true, 'right'); ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="<?= get_stylesheet_directory_uri(); ?>/reset.css" />
+    <link rel="stylesheet" type="text/css" href="<?= get_stylesheet_directory_uri(); ?>/style.css" />
+    
+    <?php wp_head(); ?>
+
+    <script type='text/javascript' src='<?= get_stylesheet_directory_uri(); ?>/scripts.js'></script>
+    <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
+</head>
+
+<body <?php body_class(); ?>>
+
+    <!--[if lt IE 8]>
+        <div class="alert alert-warning">
+            <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'roots'); ?>
+        </div>
+    <![endif]-->
+
+    <header>
+        <div class="top">
+            <span>
+                <a href="#" title="Site em Espanhol">español</a> |
+                <a href="#" title="Site em Inglês">english</a>
+                <a href="#" class="contato" title="Entre em contato conosco">Contato</a>
+            </span>
+        </div>
+        <div class="container">
+
+            <div class="banner">
+                <div class="bvs">
+                    <img src="<?= get_stylesheet_directory_uri(); ?>/img/logobvs.gif">
+                </div>
+
+                <div class="title">
+                    <img src="<?= get_stylesheet_directory_uri(); ?>/img/title3.gif">
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            
+            <div class="menu-topo">
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Rede de Colaboradores</a></li>
+                    <li><a href="#">Guia de Uso</a></li>
+                    <li><a href="#">Documentos de Referência</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div class="search">
+                
+                <script>
+                    function evipnet_search_submit() {
+                    $("#searchForm").submit();
+                }
+                </script>
+                
+                <form action="http://global.evipnet.org/" name="search" method="get" id="searchForm" onsubmit="return executeSearch();" >
+                    <input type="text" name="q">
+                    <a href="javascript:evipnet_search_submit()" id="search-submit"><img src="<?= get_stylesheet_directory_uri(); ?>/img/search-button.jpg"></a>
+                    <div style="clear:both"></div>
+
+                    <ul class="radio">
+                        <li><a href="#"><input type="radio" name="collection" value="evipnet" checked="true"> SOF</a></li>
+                        <li><a href="#"><input type="radio" name="collection" value="evipnet-hse"> BVS APS</a></li>
+                    </ul>
+                    <ul class="links">
+                        <li><a href="#">Temas da SOF</a></li>
+                    </ul>
+                </form>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+
+
+    </header>

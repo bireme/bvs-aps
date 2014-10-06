@@ -1,0 +1,204 @@
+/*
+Theme Name: BVS APS
+Theme URI: http://aps.bvs.br/
+Author: Moacir Moda - BIREME
+Author URI: http://bireme.org/
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+html, body {
+	font-family: "Trebuchet MS", arial, serif;
+	font-size: 10pt;
+	color: #525252;
+}
+a, a:visited, a:active {
+	color: #525252;
+	text-decoration: none;
+	font-weight: bold;
+}
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+b {	font-weight: bold; }
+.clear { clear:both; }
+header {
+	background: url(img/bg-top.jpg) no-repeat;	
+}
+h2 {
+	font-size: 16pt;
+	font-weight: bold;
+	margin: 10px 0;
+}
+p {
+	margin: 20px 0;
+}
+
+.top {
+	background-color: #78B421;
+	color: #fff;
+	font-size: 8pt;
+	padding: 9px 0;
+	text-align: right;
+}
+.top a {
+	color: #fff;
+	
+}
+.top span {
+	margin: 0 10px;
+}
+.top .contato {
+	color: #fff;
+	background: url(img/bt_contact.gif) top left no-repeat;
+	padding-left: 20px;
+	margin-left: 10px;
+}
+.banner {
+	background: url(img/banner.jpg) no-repeat;
+	width: 100%;
+	height: 113px;
+}
+.banner .bvs {
+	padding: 15px 20px 10px 10px;
+	float: left;
+}
+.banner .title {
+	padding: 15px 20px 10px 10px;
+}
+.menu {
+	width: 100%;
+	text-align: center;
+	margin: 30px 0 0 0;
+}
+.menu li {
+	display: inline-block;
+	font-size: 11pt;
+	text-transform: uppercase;
+	padding: 5px 15px;
+	border-right: 1px solid #525252;
+}
+.menu li:last-child {
+	border-right: none;
+}
+.menu li a {
+	color: #525252;
+	font-weight: normal;
+}
+.menu li a:hover {
+	text-decoration: underline;
+}
+.search {
+	margin: 50px auto;
+	width: 522px;
+}
+.search input[type='text'] {
+	font-size: 15pt;
+	border: 1px solid #c2c2c2;
+	width: 450px;
+	height: 30px;
+	float: left;
+}
+.search #search-submit {
+	float: left;
+}
+.search ul {
+	float: left;
+}
+.search ul li {
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
+.search ul.links {
+	float: right;
+	margin: 2px 0 0 0 ;
+}
+.search ul.links li a {
+	color: #54a7ff;
+	font-weight: bold;
+}
+.widget_links {
+	width: 33%;
+	float: left;
+}
+.widget_links > ul {
+	padding: 10px;
+}
+.widget_links > ul li {
+	padding: 3px 0;
+}
+.widget_links > ul a {
+	font-weight: normal;
+	background: url(img/arrow.png) no-repeat 0 2px;
+	padding-left: 20px;
+	line-height: 15pt;
+}
+.widget_links > h2 {
+	font-weight: bold;
+	padding: 10px 0;
+	font-size: 14pt;
+	color: #78B421;
+	border-bottom: 1px solid #78B421;
+	margin: 0 30px 20px 0; 
+}
+.widget_links ul {
+	margin: 10px 0 40px 0;
+}
+.widget_links > p {
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+.widget_metaslider_widget {
+	margin: 40px 0 60px 0;
+}
+
+footer {
+	background-color: #90C3DD;
+}
+footer .container {
+	background-color: #90C3DD;
+	padding: 30px 0;
+}
+footer .container > div {
+	padding: 10px;
+}
+
+.archive .item {
+	margin: 60px 0 30px 0;
+}
+.archive .item .thumb {
+	float: left;
+	margin: 0 20px 0 0;
+}
+.archive .item .category a {
+	color: #90C3DD;
+	font-size: 11pt;
+}
+.archive .item p {
+	line-height: 20pt;
+}
+.archive .item h2 a {
+	color: #78B421;	
+}
+.archive .item h2 a:hover {
+	text-decoration: underline;
+}
+.pagination {
+	text-align: center;
+	margin: 50px 0 40px;
+}
+.pagination .current, .pagination .inactive {
+	padding: 5px 10px;
+	font-size: 12pt;
+	color: #fff;
+	background-color: #c0c0c0;
+	margin: 10px;
+}
+.pagination .inactive {
+	background-color: #90C3DD;
+}
+.pagination .inactive:hover {
+	background-color: #78B421;		
+}

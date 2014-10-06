@@ -5,124 +5,161 @@ import os, sys, codecs
 from BeautifulSoup import BeautifulSoup
 from slugify import slugify
 import json
+import requests
 
-headers = {
-	'Bibliografia selecionada:': 'bibliografia_selecionada',
-	'Revisão em: ': 'revisao',
+months = ['', 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
+url = "http://blog.telessaudebrasil.org.br/?paged=%s"
+
+
+posts = []
+for i in range(1,75):
+	curr_url = url % i
+	# print curr_url
+
+	r = requests.get(curr_url)
+	bs = BeautifulSoup(r.content, convertEntities=BeautifulSoup.HTML_ENTITIES)
+
+	post = {}
+	for div in bs.findAll('div', attrs={'id': True}):
+		if div.get('id').startswith('post-'):
+			
+			post['id'] = div.get('id').replace("post-", "") 
+			post['title'] = div.find('h2').text
+			post['content'] = div.find('div', attrs={'class': 'entry'})
+			post['category'] = div.find(True, attrs={'class': 'postmetadata'}).find('a', attrs={'rel': 'category'}).text
+
+			day, mon, yea = div.find('span', attrs={'class': 'date'}).text.split(" ")
+			mon = months.index(mon)
+			post['date'] = "%s-%02d-%02d 01:00:00" % (yea, int(mon), int(day))
+
+			
+			posts.append(post)
+			post = {}
+			# print div
+			# raw_input()
+# sys.exit()
+# headers = {
+# 	'Bibliografia selecionada:': 'bibliografia_selecionada',
+# 	'Revisão em: ': 'revisao',
 	
-	'Categoria da Evidência: ': 'observacoes',
-	# 'Data:': '',
-	# 'Educação Permanente': '',
-	# 'Profissional solicitante: ': '',
-	# 'Descritores DeCS: ': '',
-	'Descritores ICPC2: ': '',
-	# 'Teleconsultor: ': '',
+# 	'Categoria da Evidência: ': 'observacoes',
+# 	# 'Data:': '',
+# 	# 'Educação Permanente': '',
+# 	# 'Profissional solicitante: ': '',
+# 	# 'Descritores DeCS: ': '',
+# 	'Descritores ICPC2: ': '',
+# 	# 'Teleconsultor: ': '',
 
 
-}
+# }
 
 # set up output encoding
 if not sys.stdout.isatty():
     # here you can set encoding for your 'out.txt' file
     sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 
-if len(sys.argv) < 2:
-	print "use: ./proccess-aps.py <file_to_proccess>"
-	sys.exit(1)
+# if len(sys.argv) < 2:
+# 	print "use: ./proccess-aps.py <file_to_proccess>"
+# 	sys.exit(1)
 
-FILE=sys.argv[1]
+# FILE=sys.argv[1]
 
-file_content = ""
-with open(FILE) as handle:
-	file_content = handle.read()
+# file_content = ""
+# with open(FILE) as handle:
+# 	file_content = handle.read()
 
-bs = BeautifulSoup(file_content, convertEntities=BeautifulSoup.HTML_ENTITIES)
+# bs = BeautifulSoup(file_content, convertEntities=BeautifulSoup.HTML_ENTITIES)
 
-items = []
-for question in bs.findAll('item'):
+# items = []
+# for question in bs.findAll('item'):
 
-	post_type = question.find("wp:post_type")
-	if post_type:
-		if post_type.string != "post":
-			continue
+# 	post_type = question.find("wp:post_type")
+# 	if post_type:
+# 		if post_type.string != "post":
+# 			continue
 
-	title = question.find('title').string
-	id = question.find('wp:post_id').string
-	post_date = question.find('wp:post_date').string
-	post_date_gmt = question.find('wp:post_date_gmt').string
+# 	title = question.find('title').string
+# 	id = question.find('wp:post_id').string
+# 	post_date = question.find('wp:post_date').string
+# 	post_date_gmt = question.find('wp:post_date_gmt').string
 
-	status = 'pending'
-	if question.find('wp:status').string == "pending":
-		status = 'draft'
+# 	status = 'pending'
+# 	if question.find('wp:status').string == "pending":
+# 		status = 'draft'
 	
-	if not title:
-		continue
+# 	if not title:
+# 		continue
 
-	tax = ""
-	for item in question.find('content:encoded'):
+# 	tax = ""
+# 	for item in question.find('content:encoded'):
 
-		content = item.string
-		bs2 = BeautifulSoup(content, convertEntities=BeautifulSoup.HTML_ENTITIES)
+# 		content = item.string
+# 		bs2 = BeautifulSoup(content, convertEntities=BeautifulSoup.HTML_ENTITIES)
 
-		description = content.split("<strong>")[0]
+# 		description = content.split("<strong>")[0]
 
-		for item2 in bs2.findAll('strong'):
-			try:
-				head = item2.string.encode('utf-8')
-				content = item2.nextSibling.string.replace('\r', '')
-			except:
-				continue
+# 		for item2 in bs2.findAll('strong'):
+# 			try:
+# 				head = item2.string.encode('utf-8')
+# 				content = item2.nextSibling.string.replace('\r', '')
+# 			except:
+# 				continue
 
-			if 'Profissional solicitante' in head:
-				for prof1 in content.split(","):
-					for prof2 in prof1.split(" e "):
-						prof2 = prof2.replace(":", '').strip()
-						tax += '<category domain="tipo-de-profissional" nicename="%s"><![CDATA[%s]]></category>' % (slugify(prof2).lower(), prof2)
-				continue
+# 			if 'Profissional solicitante' in head:
+# 				for prof1 in content.split(","):
+# 					for prof2 in prof1.split(" e "):
+# 						prof2 = prof2.replace(":", '').strip()
+# 						tax += '<category domain="tipo-de-profissional" nicename="%s"><![CDATA[%s]]></category>' % (slugify(prof2).lower(), prof2)
+# 				continue
 
-			if 'Descritores DeCS' in head:
-				for decs in content.split(";"):
-					decs = decs.replace(":", '').strip()
-					if decs:
-						tax += '<category domain="decs" nicename="%s"><![CDATA[%s]]></category>' % (slugify(decs).lower(), decs)
-				continue
+# 			if 'Descritores DeCS' in head:
+# 				for decs in content.split(";"):
+# 					decs = decs.replace(":", '').strip()
+# 					if decs:
+# 						tax += '<category domain="decs" nicename="%s"><![CDATA[%s]]></category>' % (slugify(decs).lower(), decs)
+# 				continue
 
 					
-			if 'CIAP1' in head or 'CIAP 1' in head:
-				content = content.replace(":", '').strip()
-				if content:
-					tax += '<category domain="ciap1" nicename="%s"><![CDATA[%s]]></category>' % (slugify(content).lower(), content)
-				continue
+# 			if 'CIAP1' in head or 'CIAP 1' in head:
+# 				content = content.replace(":", '').strip()
+# 				if content:
+# 					tax += '<category domain="ciap1" nicename="%s"><![CDATA[%s]]></category>' % (slugify(content).lower(), content)
+# 				continue
 
-			if 'Teleconsultor' in head:
-				content = content.replace(":", '').strip()
-				tax += '<category domain="teleconsultor" nicename="%s"><![CDATA[%s]]></category>' % (slugify(content).lower(), content)
-				continue
+# 			if 'Teleconsultor' in head:
+# 				content = content.replace(":", '').strip()
+# 				tax += '<category domain="teleconsultor" nicename="%s"><![CDATA[%s]]></category>' % (slugify(content).lower(), content)
+# 				continue
 
-			if 'CIAP2' in head or 'CIAP 2' in head or 'ICPC2' in head:
-				for ciap2 in content.split(";"):
-					ciap2 = ciap2.replace(":", '').strip()
-					tax += '<category domain="ciap2" nicename="%s"><![CDATA[%s]]></category>' % (slugify(ciap2).lower(), ciap2)
-				continue
+# 			if 'CIAP2' in head or 'CIAP 2' in head or 'ICPC2' in head:
+# 				for ciap2 in content.split(";"):
+# 					ciap2 = ciap2.replace(":", '').strip()
+# 					tax += '<category domain="ciap2" nicename="%s"><![CDATA[%s]]></category>' % (slugify(ciap2).lower(), ciap2)
+# 				continue
 
-			if head in headers and headers[head]:
+# 			if head in headers and headers[head]:
 
-				if content.strip():
-					tax += """<wp:postmeta>
-					<wp:meta_key>%s</wp:meta_key>
-					<wp:meta_value><![CDATA[%s]]></wp:meta_value>
-					</wp:postmeta>""" % (headers[head], content.strip())
+# 				if content.strip():
+# 					tax += """<wp:postmeta>
+# 					<wp:meta_key>%s</wp:meta_key>
+# 					<wp:meta_value><![CDATA[%s]]></wp:meta_value>
+# 					</wp:postmeta>""" % (headers[head], content.strip())
 			
-			# if 'Categoria da Evidência' in head:
+# 			# if 'Categoria da Evidência' in head:
 				
-			# 	content = content.replace(":", '').strip()
-			# 	tax += '<category domain="categoria-da-evidencia" nicename="%s"><![CDATA[%s]]></category>' % (slugify(content).lower(), content)
+# 			# 	content = content.replace(":", '').strip()
+# 			# 	tax += '<category domain="categoria-da-evidencia" nicename="%s"><![CDATA[%s]]></category>' % (slugify(content).lower(), content)
 		
 
-			# print "'%s': ''," % head
-			# print "content: %s" % content
-			# print 
-			# print 
+# 			# print "'%s': ''," % head
+# 			# print "content: %s" % content
+# 			# print 
+# 			# print 
+
+items = []
+for post in posts:
+
+	tax = '<category domain="categoria-da-evidencia" nicename="%s"><![CDATA[%s]]></category>' % (slugify(post['category']).lower(), post['category'])
 
 	item = """
 	<item>
@@ -165,7 +202,7 @@ for question in bs.findAll('item'):
 
 		<content:encoded><![CDATA[%s]]></content:encoded>
 	</item>	
-	""" % (post_date, post_date_gmt, title, id, status, tax, description)
+	""" % (post['date'], post['date'], post['title'], post['id'], 'pending', tax, post['content'])
 
 	items.append(item)
 	
