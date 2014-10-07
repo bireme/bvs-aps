@@ -1,6 +1,7 @@
+<?php // template name: Colaboradores ?>
 <?php get_header(); ?>
 
-<div class="single aps">
+<div class="single colab">
 	
 	<div class="container">
 			
@@ -9,8 +10,13 @@
 			<div class="item">
 
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				
 				<div class="content"><p><?php the_content(); ?></p></div>
+
+				<ul>
+					<?php foreach(get_terms('teleconsultor') as $term): ?>
+						<li><a href="<?php print_r(get_term_link($term)); ?>" title="<?php print $term->name; ?>"><?php print $term->name; ?></a></li>
+					<?php endforeach; ?>
+				</ul>
 			</div>
 
 		<?php endwhile; ?>

@@ -3,6 +3,8 @@
 <div class="archive">
 	
 	<div class="container">
+
+		<h1><?php single_cat_title(); ?></h1>
 			
 		<?php while(have_posts()): the_post(); ?>
 			

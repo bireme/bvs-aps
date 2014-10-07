@@ -70,3 +70,5 @@ function kriesi_pagination($pages = '', $range = 2) {
          echo "</div>\n";
      }
 }
+
+add_image_size( 'single-thumb', 500, 100, true ); // (cropped)

@@ -27,15 +27,23 @@ b {	font-weight: bold; }
 header {
 	background: url(img/bg-top.jpg) no-repeat;	
 }
-h2 {
-	font-size: 16pt;
+
+h1, h2, h3, h4 {
+	font-size: 20pt;
 	font-weight: bold;
 	margin: 10px 0;
+	letter-spacing: -1px;
 }
+h2 { font-size: 16pt; }
+h3 { font-size: 14pt; }
+h4 { font-size: 12pt; }
 p {
 	margin: 20px 0;
 }
 
+.banner-container {
+	background: linear-gradient(to left, #fff 50%, #9EC3E0 50%);
+}
 .top {
 	background-color: #78B421;
 	color: #fff;
@@ -129,7 +137,7 @@ p {
 .widget_links > ul li {
 	padding: 3px 0;
 }
-.widget_links > ul a {
+.widget_links > ul a, .item ul li a {
 	font-weight: normal;
 	background: url(img/arrow.png) no-repeat 0 2px;
 	padding-left: 20px;
@@ -156,6 +164,7 @@ p {
 
 footer {
 	background-color: #90C3DD;
+	margin-top: 70px;
 }
 footer .container {
 	background-color: #90C3DD;
@@ -179,6 +188,12 @@ footer .container > div {
 .archive .item p {
 	line-height: 20pt;
 }
+.archive h1 {
+	font-size: 20pt;
+	font-weight: bold;
+	margin:  0 0 -40px 0;
+	color: #90C3DD;
+}
 .archive .item h2 a {
 	color: #78B421;	
 }
@@ -201,4 +216,34 @@ footer .container > div {
 }
 .pagination .inactive:hover {
 	background-color: #78B421;		
+}
+
+.single.aps .item {
+	line-height: 20pt;
+}
+.single .item h2 a {
+	color: #78B421;	
+}
+.single.aps .item h2 a:hover {
+	text-decoration: underline;
+}
+.single.aps .item .category a {
+	color: #90C3DD;
+	font-size: 11pt;
+}
+.single.aps .item .thumb img {
+	width: 100%;
+	margin: 30px 0;
+}
+.single.aps .item .dados a {
+	font-weight: normal;
+}
+.single.aps .item .dados a:hover {
+	text-decoration: underline;
+}
+.single.aps .item .content a {
+	text-decoration: underline;
+}
+.single.aps .item .content a:hover {
+	text-decoration: none;
 }

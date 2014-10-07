@@ -31,31 +31,28 @@
                 <a href="#" class="contato" title="Entre em contato conosco">Contato</a>
             </span>
         </div>
+
+        <div class="banner-container">
+            <div class="container">
+
+                <div class="banner">
+                    <div class="bvs">
+                        <img src="<?= get_stylesheet_directory_uri(); ?>/img/logobvs.gif">
+                    </div>
+
+                    <div class="title">
+                        <img src="<?= get_stylesheet_directory_uri(); ?>/img/title3.gif">
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <?php wp_nav_menu( array('menu' => 'Topo' )); ?>
+
         <div class="container">
-
-            <div class="banner">
-                <div class="bvs">
-                    <img src="<?= get_stylesheet_directory_uri(); ?>/img/logobvs.gif">
-                </div>
-
-                <div class="title">
-                    <img src="<?= get_stylesheet_directory_uri(); ?>/img/title3.gif">
-                </div>
-
-                <div class="clear"></div>
-            </div>
-            
-            <div class="menu-topo">
-                <ul class="menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Rede de Colaboradores</a></li>
-                    <li><a href="#">Guia de Uso</a></li>
-                    <li><a href="#">Documentos de Referência</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
-            </div>
-            
             <div class="search">
                 
                 <script>
@@ -64,14 +61,14 @@
                 }
                 </script>
                 
-                <form action="http://global.evipnet.org/" name="search" method="get" id="searchForm" onsubmit="return executeSearch();" >
+                <form action="http://pesquisa.bvs.br/telessaude/" name="search" method="get" id="searchForm" onsubmit="return executeSearch();" >
                     <input type="text" name="q">
                     <a href="javascript:evipnet_search_submit()" id="search-submit"><img src="<?= get_stylesheet_directory_uri(); ?>/img/search-button.jpg"></a>
                     <div style="clear:both"></div>
 
                     <ul class="radio">
-                        <li><a href="#"><input type="radio" name="collection" value="evipnet" checked="true"> SOF</a></li>
-                        <li><a href="#"><input type="radio" name="collection" value="evipnet-hse"> BVS APS</a></li>
+                        <li><a href="#"><input type="radio" name="" value="evipnet" checked="true"> SOF</a></li>
+                        <li><a href="#"><input type="radio" name="" value="evipnet-hse"> BVS APS</a></li>
                     </ul>
                     <ul class="links">
                         <li><a href="#">Temas da SOF</a></li>
@@ -79,7 +76,6 @@
                 </form>
                 <div style="clear:both"></div>
             </div>
-        </div>
-
+        </div> 
 
     </header>
