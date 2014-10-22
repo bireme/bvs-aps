@@ -22,7 +22,8 @@
 						<b>Categoria da Evidência: </b><?php the_terms(get_the_ID(), 'categoria-da-evidencia'); ?><br>
 						<b>Profissional Solicitante: </b><?php the_terms(get_the_ID(), 'tipo-de-profissional'); ?><br>
 						<b>Descritores DeCS: </b><?php the_terms(get_the_ID(), 'decs'); ?><br>
-						<b>Descritores ICPC2: </b><?php the_terms(get_the_ID(), 'ciap1'); ?><br>
+						<b>Descritores CIAP1: </b><?php the_terms(get_the_ID(), 'ciap1'); ?><br>
+						<b>Descritores ICPC2: </b><?php the_terms(get_the_ID(), 'ciap2'); ?><br>
 						<b>Teleconsultor: </b><?php the_terms(get_the_ID(), 'teleconsultor'); ?>
 					</p>
 				</div>

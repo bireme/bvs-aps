@@ -22,7 +22,7 @@ a, a:visited, a:active {
 	margin: 0 auto;
 	background-color: #fff;
 }
-b {	font-weight: bold; }
+b, strong {	font-weight: bold; }
 .clear { clear:both; }
 header {
 	background: url(img/bg-top.jpg) no-repeat;	
