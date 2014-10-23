@@ -66,10 +66,6 @@
                     <a href="javascript:evipnet_search_submit()" id="search-submit"><img src="<?= get_stylesheet_directory_uri(); ?>/img/search-button.jpg"></a>
                     <div style="clear:both"></div>
 
-                    <ul class="radio">
-                        <li><a href="#"><input type="radio" name="" value="evipnet" checked="true"> SOF</a></li>
-                        <li><a href="#"><input type="radio" name="" value="evipnet-hse"> BVS APS</a></li>
-                    </ul>
                     <ul class="links">
                         <li><a href="#">Temas da SOF</a></li>
                     </ul>
