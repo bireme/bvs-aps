@@ -149,7 +149,8 @@ p {
 	font-size: 14pt;
 	color: #78B421;
 	border-bottom: 1px solid #78B421;
-	margin: 0 30px 20px 0; 
+	margin: 0 10px;
+	text-align: center; 
 }
 .widget_links ul {
 	margin: 10px 0 40px 0;
