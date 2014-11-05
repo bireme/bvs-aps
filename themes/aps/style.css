@@ -149,7 +149,8 @@ p {
 	font-size: 14pt;
 	color: #78B421;
 	border-bottom: 1px solid #78B421;
-	margin: 0 30px 20px 0; 
+	margin: 0 10px;
+	text-align: center; 
 }
 .widget_links ul {
 	margin: 10px 0 40px 0;
@@ -174,12 +175,18 @@ footer .container > div {
 	padding: 10px;
 }
 
+.archive .thumb img {
+	width: 100%;	
+}
 .archive .item {
-	margin: 60px 0 30px 0;
+	margin: 30px 0 30px 0;
 }
 .archive .item .thumb {
 	float: left;
 	margin: 0 20px 0 0;
+}
+.archive .item .thumb img {
+	width: 20%;	
 }
 .archive .item .category a {
 	color: #90C3DD;
@@ -232,8 +239,9 @@ footer .container > div {
 	font-size: 11pt;
 }
 .single.aps .item .thumb img {
-	width: 100%;
-	margin: 30px 0;
+	width: 20%;
+	margin: 30px 20px 30px 0;
+	float:left;
 }
 .single.aps .item .dados a {
 	font-weight: normal;
@@ -246,4 +254,7 @@ footer .container > div {
 }
 .single.aps .item .content a:hover {
 	text-decoration: none;
+}
+.footer .footer1 img {
+	float: left;
 }

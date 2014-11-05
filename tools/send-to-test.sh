@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 serv="crisfoto"
 ssh="ssh $serv"
 root="/home/moa/project/bvsaps"
