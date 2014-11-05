@@ -19,14 +19,33 @@
 				
 				<div class="dados">
 					<p>
-						<b>Categoria da Evidência: </b><?php the_terms(get_the_ID(), 'categoria-da-evidencia'); ?><br>
-						<b>Profissional Solicitante: </b><?php the_terms(get_the_ID(), 'tipo-de-profissional'); ?><br>
-						<b>Descritores DeCS: </b><?php the_terms(get_the_ID(), 'decs'); ?><br>
-						<b>Descritores CIAP1: </b><?php the_terms(get_the_ID(), 'ciap1'); ?><br>
-						<b>Descritores ICPC2: </b><?php the_terms(get_the_ID(), 'ciap2'); ?><br>
-						<b>Teleconsultor: </b><?php the_terms(get_the_ID(), 'teleconsultor'); ?>
+						<?php if(!empty(get_the_terms(get_the_ID(), 'teleconsultor'))): ?>
+							<b>Teleconsultor: </b><?php the_terms(get_the_ID(), 'teleconsultor'); ?><br>
+						<?php endif; ?>
+						
+						<?php if(!empty(get_the_terms(get_the_ID(), 'tipo-de-profissional'))): ?>
+							<b>Profissional Solicitante: </b><?php the_terms(get_the_ID(), 'tipo-de-profissional'); ?><br>
+						<?php endif; ?>
+						
+						<?php if(!empty(get_the_terms(get_the_ID(), 'ciap2'))): ?>
+							<b>Descritores ICPC2: </b><?php the_terms(get_the_ID(), 'ciap2'); ?><br>
+						<?php endif; ?>
+						
+						<?php if(!empty(get_the_terms(get_the_ID(), 'ciap1'))): ?>
+							<b>Descritores CIAP1: </b><?php the_terms(get_the_ID(), 'ciap1'); ?><br>
+						<?php endif; ?>
+						
+						<?php if(!empty(get_the_terms(get_the_ID(), 'decs'))): ?>
+							<b>Descritores DeCS: </b><?php the_terms(get_the_ID(), 'decs'); ?><br>
+						<?php endif; ?>
+						
+						<?php if(!empty(get_the_terms(get_the_ID(), 'categoria-da-evidencia'))): ?>
+							<b>Categoria da Evidência: </b><?php the_terms(get_the_ID(), 'categoria-da-evidencia'); ?><br>
+						<?php endif; ?>
 					</p>
 				</div>
+
+				<div style="clear:both"></div>
 
 				<div class="content">
 					<p><?php the_content(); ?></p>

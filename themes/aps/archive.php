@@ -5,6 +5,12 @@
 	<div class="container">
 
 		<h1><?php single_cat_title(); ?></h1>
+
+		<?php if(is_tax()): ?>
+			<div class="thumb">
+				<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'medium'); ?>" />
+			</div>
+		<?php endif; ?>
 			
 		<?php while(have_posts()): the_post(); ?>
 			
