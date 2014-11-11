@@ -13,33 +13,33 @@
 				
 				<div class="thumb">
 					<?php foreach (get_the_terms(get_the_ID(), 'area-tematica') as $cat): ?>
-						<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); ?>" />
+						<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb'); ?>" />
 					<?php break; endforeach; ?>
 				</div>
 				
 				<div class="dados">
 					<p>
-						<?php $term_content = get_the_terms(get_the_ID(), 'teleconsultor'); if(!empty($term_content)): ?>
-							<b>Teleconsultor: </b><?php the_terms(get_the_ID(), 'teleconsultor'); ?><br>
+						<?php if(!empty(get_the_terms(get_the_ID(), 'questao_clinica'))): ?>
+							<b>Questão Clínica: </b><?php the_terms(get_the_ID(), 'questao-clinica'); ?><br>
 						<?php endif; ?>
 						
-						<?php $term_content = get_the_terms(get_the_ID(), 'tipo-de-profissional'); if(!empty($term_content)): ?>
-							<b>Profissional Solicitante: </b><?php the_terms(get_the_ID(), 'tipo-de-profissional'); ?><br>
+						<?php if(!empty(get_the_terms(get_the_ID(), 'resposta_baseada_em_evidencia'))): ?>
+							<b>Profissional Solicitante: </b><?php the_terms(get_the_ID(), 'resposta_baseada_em_evidencia'); ?><br>
 						<?php endif; ?>
 						
-						<?php $term_content = get_the_terms(get_the_ID(), 'ciap2'); if(!empty($term_content)): ?>
+						<?php if(!empty(get_the_terms(get_the_ID(), 'ciap2'))): ?>
 							<b>Descritores ICPC2: </b><?php the_terms(get_the_ID(), 'ciap2'); ?><br>
 						<?php endif; ?>
 						
-						<?php $term_content = get_the_terms(get_the_ID(), 'ciap1'); if(!empty($term_content)): ?>
+						<?php if(!empty(get_the_terms(get_the_ID(), 'ciap1'))): ?>
 							<b>Descritores CIAP1: </b><?php the_terms(get_the_ID(), 'ciap1'); ?><br>
 						<?php endif; ?>
 						
-						<?php $term_content = get_the_terms(get_the_ID(), 'decs'); if(!empty($term_content)): ?>
+						<?php if(!empty(get_the_terms(get_the_ID(), 'decs'))): ?>
 							<b>Descritores DeCS: </b><?php the_terms(get_the_ID(), 'decs'); ?><br>
 						<?php endif; ?>
 						
-						<?php $term_content = get_the_terms(get_the_ID(), 'area-tematica'); if(!empty($term_content)): ?>
+						<?php if(!empty(get_the_terms(get_the_ID(), 'area-tematica'))): ?>
 							<b>Categoria da Evidência: </b><?php the_terms(get_the_ID(), 'area-tematica'); ?><br>
 						<?php endif; ?>
 					</p>

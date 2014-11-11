@@ -9,12 +9,12 @@
 			<div class="item">
 
 				<div class="thumb">
-					<?php foreach (get_the_terms(get_the_ID(), 'categoria-da-evidencia') as $cat): ?>
+					<?php foreach (get_the_terms(get_the_ID(), 'area-tematica') as $cat): ?>
 						<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'medium'); ?>" />
 					 <?php break; endforeach; ?>
 				</div>
 					
-				<div class="category"><?php the_terms(get_the_ID(), 'categoria-da-evidencia'); ?></div>
+				<div class="category"><?php the_terms(get_the_ID(), 'area-tematica'); ?></div>
 
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<?= the_post_thumbnail('research-thumb'); ?>
