@@ -8,8 +8,8 @@
 			
 			<div class="item">
 
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				<div class="category"><?php the_terms(get_the_ID(), 'area-tematica'); ?></div>
+				<h2><a href="<?php the_permalink(); ?>"><?php the_field('numero_data_autoria'); ?></a></h2>
+
 				
 				<div class="thumb">
 					<?php foreach (get_the_terms(get_the_ID(), 'area-tematica') as $cat): ?>
@@ -17,11 +17,6 @@
 					<?php break; endforeach; ?>
 				</div>
 				
-				<div class="numero_data_autoria">
-					<h3><?php _e("Número, data e Autoria", 'bvsaps'); ?></h3>
-					<div class="content"><?php the_field('numero_data_autoria'); ?></div>
-				</div>
-
 				<div class="area_tematica">
 					<h3><?php _e("Área Temática", 'bvsaps'); ?></h3>
 					<div class="content"><?php the_terms(get_the_ID(), 'area-tematica'); ?></div>
