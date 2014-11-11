@@ -202,6 +202,9 @@ footer .container > div {
 	margin:  0 0 -40px 0;
 	color: #90C3DD;
 }
+.archive .item h2 {
+	margin-bottom: -15px;
+}
 .archive .item h2 a {
 	color: #78B421;	
 }
@@ -235,13 +238,17 @@ footer .container > div {
 .single.aps .item h2 a:hover {
 	text-decoration: underline;
 }
-.single.aps .item .category a {
+.single .item .category {
+	margin-top: -10px;
+	margin-bottom: -10px;
+}
+.single .item .category a {
 	color: #90C3DD;
 	font-size: 11pt;
 }
 .single.aps .item .thumb img {
 	width: 250px;
-	margin: 30px 20px 30px 0;
+	margin: 30px 20px 15px 0;
 	float:left;
 }
 .single.aps .item .dados a {
@@ -258,4 +265,19 @@ footer .container > div {
 }
 .footer .footer1 img {
 	float: left;
+}
+.single.pearl h2 {
+
+}
+.single.pearl h3 {
+	text-align: left;
+	font-size: 14pt;
+	color: black;
+	letter-spacing: -1px;
+	border-bottom: 1px solid #000;
+	padding-bottom: 5px;
+	margin-top: 20px;
+}
+.single.pearl {
+	line-height: 20pt;
 }

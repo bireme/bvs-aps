@@ -71,5 +71,17 @@ function kriesi_pagination($pages = '', $range = 2) {
      }
 }
 
+add_filter('term_link', 'term_link_filter', 10, 3);
+function term_link_filter( $url, $term, $taxonomy ) {
+    
+    global $wp_query;
+    
+    $post_type = $wp_query->query['post_type'];
+    return $url . "?post_type=" . $post_type;
+   
+}
+
+
 add_image_size( 'single-thumb', 500, 100, true ); // (cropped)
 add_image_size( 'single-thumb-square', 500, 300, true ); // (cropped)
+
