@@ -238,13 +238,17 @@ footer .container > div {
 .single.aps .item h2 a:hover {
 	text-decoration: underline;
 }
+.single .item .category {
+	margin-top: -10px;
+	margin-bottom: -10px;
+}
 .single .item .category a {
 	color: #90C3DD;
 	font-size: 11pt;
 }
 .single.aps .item .thumb img {
 	width: 250px;
-	margin: 30px 20px 30px 0;
+	margin: 30px 20px 15px 0;
 	float:left;
 }
 .single.aps .item .dados a {
