@@ -202,6 +202,9 @@ footer .container > div {
 	margin:  0 0 -40px 0;
 	color: #90C3DD;
 }
+.archive .item h2 {
+	margin-bottom: -15px;
+}
 .archive .item h2 a {
 	color: #78B421;	
 }

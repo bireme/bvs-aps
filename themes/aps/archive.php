@@ -1,18 +1,31 @@
-<?php get_header(); ?>
+<?php global $wp_query; 
+
+$already_print_thumb = false;
+$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? 'SOF' : 'PEARL';
+
+get_header(); ?>
+
+<?php 
+// print "<pre>";
+// print_r($wp_query); 
+?>
+
 
 <div class="archive">
 	
 	<div class="container">
 
-		<h1><?php single_cat_title(); ?></h1>
+		<h1><?php print $post_type . ": "; single_cat_title(); ?></h1>
 
-		<?php if(is_tax()): ?>
-			<div class="thumb">
-				<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'medium'); ?>" />
-			</div>
-		<?php endif; ?>
 			
 		<?php while(have_posts()): the_post(); ?>
+			
+			<?php if(is_tax() and $already_print_thumb == false): ?>
+				<div class="thumb">
+					<img src="<?php echo z_taxonomy_image_url($wp_query->queried_object->term_id, 'single-thumb'); ?>" />
+					 <?php $already_print_thumb = true; ?>
+				</div>
+			<?php endif; ?>
 			
 			<div class="item">
 			
