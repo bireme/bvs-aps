@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="single aps">
+<div class="single pearl">
 	
 	<div class="container">
 			
@@ -17,42 +17,47 @@
 					<?php break; endforeach; ?>
 				</div>
 				
-				<div class="dados">
-					<p>
-						<?php if(!empty(get_the_terms(get_the_ID(), 'questao_clinica'))): ?>
-							<b>Questão Clínica: </b><?php the_terms(get_the_ID(), 'questao-clinica'); ?><br>
-						<?php endif; ?>
-						
-						<?php if(!empty(get_the_terms(get_the_ID(), 'resposta_baseada_em_evidencia'))): ?>
-							<b>Profissional Solicitante: </b><?php the_terms(get_the_ID(), 'resposta_baseada_em_evidencia'); ?><br>
-						<?php endif; ?>
-						
-						<?php if(!empty(get_the_terms(get_the_ID(), 'ciap2'))): ?>
-							<b>Descritores ICPC2: </b><?php the_terms(get_the_ID(), 'ciap2'); ?><br>
-						<?php endif; ?>
-						
-						<?php if(!empty(get_the_terms(get_the_ID(), 'ciap1'))): ?>
-							<b>Descritores CIAP1: </b><?php the_terms(get_the_ID(), 'ciap1'); ?><br>
-						<?php endif; ?>
-						
-						<?php if(!empty(get_the_terms(get_the_ID(), 'decs'))): ?>
-							<b>Descritores DeCS: </b><?php the_terms(get_the_ID(), 'decs'); ?><br>
-						<?php endif; ?>
-						
-						<?php if(!empty(get_the_terms(get_the_ID(), 'area-tematica'))): ?>
-							<b>Categoria da Evidência: </b><?php the_terms(get_the_ID(), 'area-tematica'); ?><br>
-						<?php endif; ?>
-					</p>
+				<div class="numero_data_autoria">
+					<h3><?php _e("Número, data e Autoria", 'bvsaps'); ?></h3>
+					<div class="content"><?php the_field('numero_data_autoria'); ?></div>
 				</div>
 
-				<div style="clear:both"></div>
+				<div class="area_tematica">
+					<h3><?php _e("Área Temática", 'bvsaps'); ?></h3>
+					<div class="content"><?php the_terms(get_the_ID(), 'area-tematica'); ?></div>
+				</div>
 
-				<div class="content">
-					<p><?php the_content(); ?></p>
+				<div class="questao_clinica">
+					<h3><?php _e("Questão Clínica", 'bvsaps'); ?></h3>
+					<div class="content"><?php the_field('questao_clinica'); ?></div>
+				</div>
+
+				<div class="resposta_baseada_em_evidencia">
+					<h3><?php _e("Resposta Baseada em Evidência", 'bvsaps'); ?></h3>
+					<div class="content"><?php the_field('resposta_baseada_em_evidencia'); ?></div>
+				</div>
+
+				<div class="alertas">
+					<h3><?php _e("Alertas", 'bvsaps'); ?></h3>
+					<div class="content"><?php the_field('alertas'); ?></div>
+				</div>
+
+				<div class="contexto">
+					<h3><?php _e("Contexto", 'bvsaps'); ?></h3>
+					<div class="content"><?php the_field('contexto'); ?></div>
 				</div>
 				
-				<b>Bibliografia Selecionada</b><br>
-				<p><?php the_field('bibliografia_selecionada'); ?></p>
+				<div class="comentarios">
+					<h3><?php _e("Comentários sobre a aplicabilidade do estudo para APS no contexto do SUS, sob o ponto de vista clínico, de gestão da saúde e para o público em geral", 'bvsaps'); ?></h3>
+					<div class="content"><?php the_field('comentarios'); ?></div>
+				</div>
+
+				<div class="referencia">
+					<h3><?php _e("Referências bibliográficas", 'bvsaps'); ?></h3>
+					<div class="content"><?php the_field('referencia'); ?></div>
+				</div>
+
+
 
 				<div class="clear"></div>
 			</div>

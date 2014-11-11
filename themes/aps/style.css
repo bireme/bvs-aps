@@ -235,7 +235,7 @@ footer .container > div {
 .single.aps .item h2 a:hover {
 	text-decoration: underline;
 }
-.single.aps .item .category a {
+.single .item .category a {
 	color: #90C3DD;
 	font-size: 11pt;
 }
@@ -258,4 +258,19 @@ footer .container > div {
 }
 .footer .footer1 img {
 	float: left;
+}
+.single.pearl h2 {
+
+}
+.single.pearl h3 {
+	text-align: left;
+	font-size: 14pt;
+	color: black;
+	letter-spacing: -1px;
+	border-bottom: 1px solid #000;
+	padding-bottom: 5px;
+	margin-top: 20px;
+}
+.single.pearl {
+	line-height: 20pt;
 }
