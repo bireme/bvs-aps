@@ -61,10 +61,13 @@
                 }
                 </script>
                 
-                <form action="http://pesquisa.bvs.br/telessaude/" name="search" method="get" id="searchForm" onsubmit="return executeSearch();" >
+                <form action="http://pesquisa.bvs.br/telessaude/" name="search" method="get" id="searchForm" >
                     <input type="text" name="q">
-                    <a href="javascript:evipnet_search_submit()" id="search-submit"><img src="<?= get_stylesheet_directory_uri(); ?>/img/search-button.jpg"></a>
+                    <a href="javascript:search_submit();" id="search-submit"><img src="<?= get_stylesheet_directory_uri(); ?>/img/search-button.jpg"></a>
+                    
                     <div style="clear:both"></div>
+                    <input type="radio" name="where" value="blog" checked> SOF
+                    <input type="radio" name="where" value="literature"> BVS APS
 
                     <ul class="links">
                         <li><a href="#">Temas da SOF</a></li>

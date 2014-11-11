@@ -18,3 +18,7 @@ $(function(){
 		$(this).html("<p>"+a[num].outerHTML+"</p>" + $(this).html());
 	});
 });
+
+function search_submit() {
+	$("#searchForm").submit();
+}
