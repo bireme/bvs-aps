@@ -14,10 +14,23 @@ get_header(); ?>
 			<div class="item">
 
 				<h2><a href="<?php the_permalink(); ?>"><?php print $post_type . ": "; the_title(); ?></a></h2>
-				<div class="category"><?php the_terms(get_the_ID(), 'area-tematica'); ?></div>
+				
+				<?php // Estes campos são os mesmos. Coloquei os dois pois há ambientes em que a taxonomy foi criada como area-tematica e outros
+				// em que a taxonomy foi criada com categoria-da-evidencia; ?>	
+				<?php if(taxonomy_exists('area-tematica')): ?>
+					<div class="category"><?php the_terms(get_the_ID(), 'area-tematica'); ?></div>
+				<?php endif; ?>
+
+				<?php if(taxonomy_exists('categoria-da-evidencia')): ?>
+					<div class="category"><?php the_terms(get_the_ID(), 'categoria-da-evidencia'); ?></div>
+				<?php endif; ?>
 				
 				<div class="thumb">
 					<?php foreach (get_the_terms(get_the_ID(), 'area-tematica') as $cat): ?>
+						<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); ?>" />
+					<?php break; endforeach; ?>
+
+					<?php foreach (get_the_terms(get_the_ID(), 'categoria-da-evidencia') as $cat): ?>
 						<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); ?>" />
 					<?php break; endforeach; ?>
 				</div>
