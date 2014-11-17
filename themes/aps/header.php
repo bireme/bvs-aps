@@ -70,7 +70,7 @@
                     <input type="radio" name="where" value="literature"> BVS APS
 
                     <ul class="links">
-                        <li><a href="#">Temas da SOF</a></li>
+                        <li><a href="<?= get_permalink( get_page_by_path( 'temas-das-sof' ) ); ?>">Temas da SOF</a></li>
                     </ul>
                 </form>
                 <div style="clear:both"></div>
