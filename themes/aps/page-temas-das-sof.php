@@ -1,13 +1,19 @@
 <?php 
+
+global $wp_query;
+
+$wp_query->query['post_type'] = "aps";
+
 if(taxonomy_exists('area-tematica')) {
-	$areas = get_terms("area-tematica", 'orderby=count&hide_empty=0');
+	$areas = get_terms("area-tematica", 'orderby=count');
 	$taxonomy = 'area-tematica';
 } else {
-	$areas = get_terms("categoria-da-evidencia", 'orderby=count&hide_empty=0');
+	$areas = get_terms("categoria-da-evidencia", 'orderby=count');
 	$taxonomy = 'categoria-da-evidencia';
 }
 
-$profissionais = get_terms('tipo-de-profissional', 'orderby=count&hide_empty=0');
+$profissionais = get_terms('tipo-de-profissional', 'orderby=count');
+
 
 get_header(); ?>
 
