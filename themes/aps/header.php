@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php wp_title('|', true, 'right'); ?></title>
+    <title><?php wp_title('BVS APS |'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="<?= get_stylesheet_directory_uri(); ?>/reset.css" />
@@ -70,7 +70,7 @@
                     <input type="radio" name="where" value="literature"> BVS APS
 
                     <ul class="links">
-                        <li><a href="#">Temas da SOF</a></li>
+                        <li><a href="<?= get_permalink( get_page_by_path( 'temas-das-sof' ) ); ?>">Temas da SOF</a></li>
                     </ul>
                 </form>
                 <div style="clear:both"></div>

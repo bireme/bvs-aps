@@ -137,13 +137,13 @@ p {
 .widget_links > ul li {
 	padding: 3px 0;
 }
-.widget_links > ul a, .item ul li a {
+.widget_links > ul a, .item ul li a, .temas ul li a {
 	font-weight: normal;
 	background: url(img/arrow.png) no-repeat 0 2px;
 	padding-left: 20px;
 	line-height: 15pt;
 }
-.widget_links > h2 {
+.widget_links > h2, .temas h2 {
 	font-weight: bold;
 	padding: 10px 0;
 	font-size: 14pt;
@@ -280,4 +280,17 @@ footer .container > div {
 }
 .single.pearl {
 	line-height: 20pt;
+}
+
+.temas ul li {
+	float: left;
+	width: 30%;
+	margin: 5px 0;	
+}
+.temas h2 {
+	text-align: left;
+	margin: 20px 0;
+}
+.temas .block {
+	margin: 40px 0 0 0;
 }
