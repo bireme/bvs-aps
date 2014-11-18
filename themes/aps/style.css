@@ -327,3 +327,6 @@ footer .container > div {
 .single.pearl .thumb img {
 	width: 100%;
 }
+.single.pearl .category {
+	margin-bottom: 0;
+}

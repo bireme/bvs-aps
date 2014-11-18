@@ -9,9 +9,10 @@
 			<div class="item">
 
 				<h3 class="post-type"><?php _e("SOF"); ?></h3>
-				<h2><a href="<?php the_permalink(); ?>"><?php the_field('numero_data_autoria'); ?></a></h2>
+				<h2><a href="<?php the_permalink(); ?>"><?php the_title(''); ?></a></h2>
+				<div class="category"><a href="<?php the_permalink(); ?>"><?php the_field('numero_data_autoria'); ?></a></div>
 
-				
+				<!--
 				<div class="thumb">
 					<?php foreach (get_the_terms(get_the_ID(), 'area-tematica') as $cat): ?>
 						<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb'); ?>" />
@@ -21,6 +22,7 @@
 						<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb'); ?>" />
 					<?php break; endforeach; ?>
 				</div>
+				-->
 				
 				<div class="area_tematica">
 					<h3 class="title"><?php _e("Área Temática", 'bvsaps'); ?></h3>
