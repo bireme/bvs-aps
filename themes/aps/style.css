@@ -294,3 +294,27 @@ footer .container > div {
 .temas .block {
 	margin: 40px 0 0 0;
 }
+
+.archive.aps h1 {
+	margin: 0 0 20px 0;
+	border-bottom: 1px solid #90C3DD;
+	padding-bottom: 5px;
+	font-size: 24pt;
+}
+.archive.aps .item .thumb {
+	float: left;
+	width: 200px;
+}
+.archive.aps .item .thumb img {
+	margin: 0;
+	float: left;
+	width: 100%;
+}
+.archive.aps .item {
+	margin: 0 0 40px 0;
+}
+.archive.aps .item h3 {
+	margin: 0 0 -10px 0;
+	font-size: 10pt;
+	color: #90C3DD;
+}
