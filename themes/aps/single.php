@@ -26,13 +26,17 @@ get_header(); ?>
 				<?php endif; ?>
 				
 				<div class="thumb">
-					<?php foreach (get_the_terms(get_the_ID(), 'area-tematica') as $cat): ?>
-						<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); ?>" />
-					<?php break; endforeach; ?>
+					<?php if(taxonomy_exists('area-tematica')): ?>
+						<?php foreach (get_the_terms(get_the_ID(), 'area-tematica') as $cat): ?>
+							<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); ?>" />
+						<?php break; endforeach; ?>
+					<?php endif; ?>
 
-					<?php foreach (get_the_terms(get_the_ID(), 'categoria-da-evidencia') as $cat): ?>
-						<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); ?>" />
-					<?php break; endforeach; ?>
+					<?php if(taxonomy_exists('categoria-da-evidencia')): ?>
+						<?php foreach (get_the_terms(get_the_ID(), 'categoria-da-evidencia') as $cat): ?>
+							<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); ?>" />
+						<?php break; endforeach; ?>
+					<?php endif; ?>
 				</div>
 				
 				<div class="dados">
@@ -53,8 +57,8 @@ get_header(); ?>
 							<b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'decs'); ?><br>
 						<?php endif; ?>
 						
-						<?php $term_content = get_the_terms(get_the_ID(), 'grau-de-evidencia'); if(!empty($term_content)): ?>
-							<b><?php _e('Grau da Evidência', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'grau-de-evidencia'); ?><br>
+						<?php $term_content = get_the_terms(get_the_ID(), 'grau-da-evidencia'); if(!empty($term_content)): ?>
+							<b><?php _e('Grau da Evidência', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'grau-da-evidencia'); ?><br>
 						<?php endif; ?>
 					</p>
 				</div>
