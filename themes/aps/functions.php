@@ -81,6 +81,17 @@ function term_link_filter( $url, $term, $taxonomy ) {
    
 }
 
+function ttruncat($text,$numb) {
+    if (strlen($text) > $numb) { 
+        $text = substr($text, 0, $numb); 
+        $text = substr($text,0,strrpos($text," ")); 
+        $etc = " ...";  
+        $text = $text.$etc; 
+    }
+    return $text; 
+}
+
+
 
 add_image_size( 'single-thumb', 500, 100, true ); // (cropped)
 add_image_size( 'single-thumb-square', 500, 300, true ); // (cropped)

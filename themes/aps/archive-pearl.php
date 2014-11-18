@@ -48,7 +48,7 @@ get_header(); ?>
 			
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<?= the_post_thumbnail('research-thumb'); ?>
-				<p><?php the_excerpt(); ?></p>
+				<p><?php print ttruncat(get_field('resposta_baseada_em_evidencia'), 250); ?></p>
 
 			</div>
 
