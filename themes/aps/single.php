@@ -13,7 +13,8 @@ get_header(); ?>
 			
 			<div class="item">
 
-				<h2><a href="<?php the_permalink(); ?>"><?php print $post_type . ": "; the_title(); ?></a></h2>
+				<h3 class="post-type"><?php _e("SOF"); ?></h3>
+				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				
 				<?php // Estes campos são os mesmos. Coloquei os dois pois há ambientes em que a taxonomy foi criada como area-tematica e outros
 				// em que a taxonomy foi criada com categoria-da-evidencia; ?>	

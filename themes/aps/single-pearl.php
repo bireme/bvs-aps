@@ -8,6 +8,7 @@
 			
 			<div class="item">
 
+				<h3 class="post-type"><?php _e("SOF"); ?></h3>
 				<h2><a href="<?php the_permalink(); ?>"><?php the_field('numero_data_autoria'); ?></a></h2>
 
 				
@@ -22,7 +23,7 @@
 				</div>
 				
 				<div class="area_tematica">
-					<h3><?php _e("Área Temática", 'bvsaps'); ?></h3>
+					<h3 class="title"><?php _e("Área Temática", 'bvsaps'); ?></h3>
 					
 					<?php if(taxonomy_exists('area-tematica')): ?>
 						<div class="content"><?php the_terms(get_the_ID(), 'area-tematica'); ?></div>
@@ -34,32 +35,32 @@
 				</div>
 
 				<div class="questao_clinica">
-					<h3><?php _e("Questão Clínica", 'bvsaps'); ?></h3>
+					<h3 class="title"><?php _e("Questão Clínica", 'bvsaps'); ?></h3>
 					<div class="content"><?php the_field('questao_clinica'); ?></div>
 				</div>
 
 				<div class="resposta_baseada_em_evidencia">
-					<h3><?php _e("Resposta Baseada em Evidência", 'bvsaps'); ?></h3>
+					<h3 class="title"><?php _e("Resposta Baseada em Evidência", 'bvsaps'); ?></h3>
 					<div class="content"><?php the_field('resposta_baseada_em_evidencia'); ?></div>
 				</div>
 
 				<div class="alertas">
-					<h3><?php _e("Alertas", 'bvsaps'); ?></h3>
+					<h3 class="title"><?php _e("Alertas", 'bvsaps'); ?></h3>
 					<div class="content"><?php the_field('alertas'); ?></div>
 				</div>
 
 				<div class="contexto">
-					<h3><?php _e("Contexto", 'bvsaps'); ?></h3>
+					<h3 class="title"><?php _e("Contexto", 'bvsaps'); ?></h3>
 					<div class="content"><?php the_field('contexto'); ?></div>
 				</div>
 				
 				<div class="comentarios">
-					<h3><?php _e("Comentários sobre a aplicabilidade do estudo para APS no contexto do SUS, sob o ponto de vista clínico, de gestão da saúde e para o público em geral", 'bvsaps'); ?></h3>
+					<h3 class="title"><?php _e("Comentários sobre a aplicabilidade do estudo para APS no contexto do SUS, sob o ponto de vista clínico, de gestão da saúde e para o público em geral", 'bvsaps'); ?></h3>
 					<div class="content"><?php the_field('comentarios'); ?></div>
 				</div>
 
 				<div class="referencia">
-					<h3><?php _e("Referências bibliográficas", 'bvsaps'); ?></h3>
+					<h3 class="title"><?php _e("Referências bibliográficas", 'bvsaps'); ?></h3>
 					<div class="content"><?php the_field('referencia'); ?></div>
 				</div>
 
