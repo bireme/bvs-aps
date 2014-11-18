@@ -15,6 +15,7 @@ if(taxonomy_exists('area-tematica')) {
 $profissionais = get_terms('tipo-de-profissional', 'orderby=count');
 $ciap2 = get_terms('ciap2', 'orderby=count');
 $grau_da_evidencia = get_terms('grau-da-evidencia', 'orderby=count');
+$teleconsultores = get_terms('teleconsultor', 'orderby=count');
 
 
 get_header(); ?>
@@ -117,6 +118,33 @@ get_header(); ?>
 						'tax_query' => array(
 							array(
 								'taxonomy' => 'grau-da-evidencia',
+								'field' => 'id',
+								'terms' => $item->term_id
+							)
+						)
+					);
+					$query = get_posts($args);
+					$total = count($query);
+
+					if($total <= 0) continue;
+					?>
+					<li><a href="<?= get_term_link($item, $taxonomy); ?>"><?= ttruncat($item->name, 35); ?> (<?= $total; ?>)</a></li>
+				<?php endforeach; ?>
+			</ul>
+			<div class="clear"></div>
+		</div>
+
+		<div class="block">
+			<h2><?php _e("Teleconsultores"); ?></h2>
+			<ul>
+				<?php foreach($teleconsultores as $item): ?>
+					<?php 
+					$total = 0;
+					$args = array(
+						'post_type' => 'aps',
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'teleconsultor',
 								'field' => 'id',
 								'terms' => $item->term_id
 							)
