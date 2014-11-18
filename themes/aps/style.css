@@ -324,3 +324,6 @@ footer .container > div {
 	font-size: 10pt;
 	color: #90C3DD;
 }
+.single.pearl .thumb img {
+	width: 100%;
+}
