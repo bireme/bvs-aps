@@ -21,7 +21,7 @@ get_header(); ?>
 			<h3><?php print $post_type; ?> - <?php print $taxonomy_title; ?></h3>
 			<h1><?php single_cat_title(); ?></h1>
 		<?php else: ?>
-			<h1><?php _e("SOF"); ?></h1>
+			<h1><?php _e("PEARL"); ?></h1>
 		<?php endif; ?>
 			
 		<?php while(have_posts()): the_post(); ?>
