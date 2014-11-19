@@ -177,7 +177,7 @@ footer .container > div {
 
 .archive .thumb img {
 	width: 100%;
-	margin: 60px 0 0 0;	
+	margin: 0 0 0 0;	
 }
 .archive .item {
 	margin: 30px 0 30px 0;
@@ -269,7 +269,7 @@ footer .container > div {
 .single.pearl h2 {
 
 }
-.single.pearl h3 {
+.single.pearl h3.title {
 	text-align: left;
 	font-size: 14pt;
 	color: black;
@@ -294,7 +294,13 @@ footer .container > div {
 .temas .block {
 	margin: 40px 0 0 0;
 }
-
+.archive.aps h3, .single h3.post-type {
+	margin-bottom: 5px;
+}
+.single h3.post-type {
+	font-size: 11pt;
+	margin-bottom: -15px;
+}
 .archive.aps h1 {
 	margin: 0 0 20px 0;
 	border-bottom: 1px solid #90C3DD;
@@ -317,4 +323,10 @@ footer .container > div {
 	margin: 0 0 -10px 0;
 	font-size: 10pt;
 	color: #90C3DD;
+}
+.single.pearl .thumb img {
+	width: 100%;
+}
+.single.pearl .category {
+	margin-bottom: 0;
 }
