@@ -5,21 +5,21 @@ global $wp_query;
 $wp_query->query['post_type'] = "aps";
 
 if(taxonomy_exists('area-tematica')) {
-	$areas = get_terms("area-tematica", 'orderby=count');
+	$areas = get_terms("area-tematica", 'orderby=name');
 	$taxonomy = 'area-tematica';
 } else {
-	$areas = get_terms("categoria-da-evidencia", 'orderby=count');
+	$areas = get_terms("categoria-da-evidencia", 'orderby=name');
 	$taxonomy = 'categoria-da-evidencia';
 }
 
-$profissionais = get_terms('tipo-de-profissional', 'orderby=count');
-$ciap2 = get_terms('ciap2', 'orderby=count');
-$grau_da_evidencia = get_terms('grau-da-evidencia', 'orderby=count');
-$teleconsultores = get_terms('teleconsultor', 'orderby=count');
+$profissionais = get_terms('tipo-de-profissional', 'orderby=name');
+$ciap2 = get_terms('ciap2', 'orderby=name');
+$grau_da_evidencia = get_terms('grau-da-evidencia', 'orderby=name');
+$teleconsultores = get_terms('teleconsultor', 'orderby=name');
 
 
 get_header(); ?>
-
+[]
 <div class="temas">
 	
 	<div class="container">
