@@ -54,8 +54,20 @@ get_header(); ?>
 							<b><?php _e('CIAP2', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'ciap2'); ?><br>
 						<?php endif; ?>
 						
-						<?php $term_content = get_the_terms(get_the_ID(), 'decs'); if(!empty($term_content)): ?>
-							<b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'decs'); ?><br>
+						<?php if(function_exists('get_the_wpdecs_terms')): $wpdecs_terms = get_the_wpdecs_terms(); ?>
+							<b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b>
+							<?php $count = 0; foreach($wpdecs_terms as $term): ?>
+								
+								<?php if($count > 0) print ","; ?>
+
+								<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>
+								
+								<?php if(isset($term['qualifier']) and !empty($term['qualifier'])): ?>
+									(<?= join($term['qualifier'], ",") ?>)
+								<?php endif; ?>
+
+							<?php $count++; endforeach; ?>
+							<br>
 						<?php endif; ?>
 						
 						<?php $term_content = get_the_terms(get_the_ID(), 'grau-da-evidencia'); if(!empty($term_content)): ?>

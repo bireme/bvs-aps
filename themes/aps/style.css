@@ -330,3 +330,16 @@ footer .container > div {
 .single.pearl .category {
 	margin-bottom: 0;
 }
+#languages_list {
+	width: 120px;
+	float: right;
+}
+#languages_list li {
+	display: inline-block;
+	float: left;
+	padding: 0 5px;
+	border-right: 1px solid #fff;
+}
+#languages_list li:last-child {
+	border-right: none;
+}

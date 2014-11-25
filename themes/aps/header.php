@@ -26,8 +26,8 @@
     <header>
         <div class="top">
             <span>
-                <a href="#" title="Site em Espanhol">español</a> |
-                <a href="#" title="Site em Inglês">english</a>
+                <?php global $site_lang; ?>
+                <?php create_language_list($site_lang); ?>
                 <a href="#" class="contato" title="Entre em contato conosco">Contato</a>
             </span>
         </div>
@@ -50,7 +50,8 @@
             </div>
         </div>
         
-        <?php wp_nav_menu( array('menu' => 'Topo' )); ?>
+        <?= 'menu-'. $site_lang ?>
+        <?php wp_nav_menu( array('menu' => 'menu-'. $site_lang)); ?>
 
         <div class="container">
             <div class="search">
