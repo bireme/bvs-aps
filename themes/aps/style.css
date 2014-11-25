@@ -271,11 +271,11 @@ footer .container > div {
 }
 .single.pearl h3.title {
 	text-align: left;
-	font-size: 14pt;
+	font-size: 11pt;
 	color: black;
 	letter-spacing: -1px;
 	border-bottom: 1px solid #000;
-	padding-bottom: 5px;
+	padding-bottom: 0;
 	margin-top: 20px;
 }
 .single.pearl {
