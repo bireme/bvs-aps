@@ -4,13 +4,6 @@
 	
 	<div class="container">
 	
-		<?php
-
-		global $wp_query;
-		// print_r($wp_query);
-
-		?>
-
 		<h1><?php single_cat_title(); ?></h1>
 
 		<?php if(is_tax()): ?>
