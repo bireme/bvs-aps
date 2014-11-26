@@ -1,7 +1,7 @@
 <?php 
 
 global $wp_query; 
-$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? 'SOF' : 'PEARL';
+$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? __('SOF', 'bvsaps') : __('PEARL', 'bvsaps');
 
 get_header(); ?>
 
@@ -13,7 +13,7 @@ get_header(); ?>
 			
 			<div class="item">
 
-				<h3 class="post-type"><?php _e("SOF"); ?></h3>
+				<h3 class="post-type"><?php _e("SOF", 'bvsaps'); ?></h3>
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				
 				<?php // Estes campos são os mesmos. Coloquei os dois pois há ambientes em que a taxonomy foi criada como area-tematica e outros
