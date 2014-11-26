@@ -50,7 +50,7 @@
             </div>
         </div>
         
-        <?php wp_nav_menu( array('menu' => 'menu-pt_BR')); ?>
+        <?php wp_nav_menu( array('theme_location' => 'menu-'. $site_lang)); ?>
 
         <div class="container">
             <div class="search">
