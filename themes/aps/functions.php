@@ -306,37 +306,7 @@ function update_translated_categories($ID) {
         add_filter('the_category','extract_text_by_language_markup');
     }
 }
-
-function update_translated_terms($ID) {
-    
-    if (!wp_is_post_revision($post_id)){
-        remove_action('save_post', 'update_translated_title_fields');
-        remove_filter('the_category','extract_text_by_language_markup');
-        
-        $categories = get_the_category($ID);
-        if ($categories){
-            foreach ($categories as $cat) {
-                $category['pt'] .= trim(extract_text_by_language_markup($cat->name, "pt_BR"));
-                $category['es'] .= trim(extract_text_by_language_markup($cat->name, "es_ES"));
-                $category['en'] .= trim(extract_text_by_language_markup($cat->name, "en_US"));
-                if (end($categories) != $cat) {
-                    $category['pt'] .= ", ";                                        
-                    $category['es'] .= ", ";                                        
-                    $category['en'] .= ", ";                                        
-                                }
-            }
-            update_post_meta($ID, 'category_pt', $category['pt']);
-            update_post_meta($ID, 'category_es', $category['es']);
-            update_post_meta($ID, 'category_en', $category['en']);
-        } else {
-            update_post_meta($ID, 'category_pt', '');
-            update_post_meta($ID, 'category_es', '');
-            update_post_meta($ID, 'category_en', '');
-        }
-        add_action('save_post','update_translated_title_fields');
-        add_filter('the_category','extract_text_by_language_markup');
-    }
-}
+add_action('save_post','update_translated_categories');
 
 function append_language_category_link ($categories){
     global $site_lang;
@@ -347,6 +317,7 @@ function append_language_category_link ($categories){
     }
     return $categories;
 }
+add_filter('wp_list_categories','append_language_category_link');
 
 function translate_categories_edit_post($categories){
     if (is_array($categories)) {
@@ -361,6 +332,31 @@ function translate_categories_edit_post($categories){
     }
     return $translated_categories;
 }
+if (preg_match('/admin-ajax.php/', $_SERVER['PHP_SELF']) == false){
+    add_filter('get_terms','translate_categories_edit_post');
+}
+add_filter('get_the_terms','translate_categories_edit_post');
+
+function update_translated_vhl_instance($ID) {
+    
+    if (!wp_is_post_revision($post_id)){
+        remove_action('save_post', 'update_translated_title_fields');
+        remove_filter('the_category','extract_text_by_language_markup');
+        
+        $vhl_instance_with_shortcodes = get_post_meta($ID, "vhl_instance", TRUE);
+        $vhl_instance_with_shortcodes = strip_tags($vhl_instance_with_shortcodes);
+        $vhl_instance['pt'] = trim(extract_text_by_language_markup($vhl_instance_with_shortcodes, "pt_BR"));
+        $vhl_instance['es'] = trim(extract_text_by_language_markup($vhl_instance_with_shortcodes, "es_ES"));
+        $vhl_instance['en'] = trim(extract_text_by_language_markup($vhl_instance_with_shortcodes, "en_US"));
+        
+        update_post_meta($ID, 'vhl_instance_pt', $vhl_instance['pt']);
+        update_post_meta($ID, 'vhl_instance_es', $vhl_instance['es']);
+        update_post_meta($ID, 'vhl_instance_en', $vhl_instance['en']);
+        add_action('save_post','update_translated_title_fields');
+        add_filter('the_category','extract_text_by_language_markup');
+    }
+}
+add_action('save_post','update_translated_vhl_instance');
 
 function fix_taxonomy_slug($slug){
     echo '<script type="text/javascript">
@@ -391,8 +387,8 @@ add_filter('the_title','extract_text_by_language_markup');
 add_filter('wp_title','fix_wp_title');
 add_action('save_post','fix_permalink');
 add_action('save_post','update_translated_title_fields');
-add_action('save_post','update_translated_categories');
-add_filter('wp_list_categories','append_language_category_link');
+
+
 add_filter('the_category','extract_text_by_language_markup');
 if (preg_match('/edit-tags.php/', $_SERVER['PHP_SELF']) && ($_GET['action'] != 'edit')) {
     add_action('admin_head', 'fix_taxonomy_slug');
@@ -400,9 +396,11 @@ if (preg_match('/edit-tags.php/', $_SERVER['PHP_SELF']) && ($_GET['action'] != '
 
 // apply translate function in admin panel
 function translate_term_name($term){
+
     return extract_text_by_language_markup($term);
 }
 add_filter('term_name', 'translate_term_name');
+add_filter('single_term_title', 'extract_text_by_language_markup');
 
 
 add_image_size( 'single-thumb', 500, 100, true ); // (cropped)
