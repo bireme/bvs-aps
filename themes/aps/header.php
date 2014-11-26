@@ -28,7 +28,7 @@
             <span>
                 <?php global $site_lang; ?>
                 <?php create_language_list($site_lang); ?>
-                <a href="#" class="contato" title="Entre em contato conosco"><?php _e('Contato', 'bvsaps'); ?></a>
+                <a href="#" class="contato" title="<?php _e('Entre em contato conosco', 'bvsaps'); ?>"><?php _e('Contato', 'bvsaps'); ?></a>
             </span>
         </div>
 

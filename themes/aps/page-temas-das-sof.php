@@ -25,7 +25,7 @@ get_header(); ?>
 	<div class="container">
 		
 		<div class="block">
-			<h2><?php _e("Áreas Temáticas"); ?></h2>
+			<h2><?php _e("Áreas Temáticas", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($areas as $area): ?>
 					
@@ -54,7 +54,7 @@ get_header(); ?>
 		</div>
 
 		<div class="block">
-			<h2><?php _e("Profissionais"); ?></h2>
+			<h2><?php _e("Profissionais", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($profissionais as $profissional): ?>
 					<?php 
@@ -81,7 +81,7 @@ get_header(); ?>
 		</div>
 
 		<div class="block">
-			<h2><?php _e("CIAP2"); ?></h2>
+			<h2><?php _e("CIAP2", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($ciap2 as $item): ?>
 					<?php 
@@ -108,7 +108,7 @@ get_header(); ?>
 		</div>
 
 		<div class="block">
-			<h2><?php _e("Grau da Evidência"); ?></h2>
+			<h2><?php _e("Grau da Evidência", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($grau_da_evidencia as $item): ?>
 					<?php 
@@ -135,7 +135,7 @@ get_header(); ?>
 		</div>
 
 		<div class="block">
-			<h2><?php _e("Teleconsultores"); ?></h2>
+			<h2><?php _e("Teleconsultores", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($teleconsultores as $item): ?>
 					<?php 
