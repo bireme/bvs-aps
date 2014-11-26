@@ -1,7 +1,7 @@
 <?php global $wp_query; 
 
 $already_print_thumb = false;
-$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? __('SOF') : __('PEARL');
+$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? __('SOF', 'bvsaps') : __('PEARL', 'bvsaps');
 
 if(is_tax()) {	
 	$taxonomies = get_the_taxonomies(); 
@@ -24,15 +24,15 @@ get_header(); ?>
 			<h3><?php print $post_type; ?> - <?php print $taxonomy_title; ?></h3>
 			<h1>
 				<?php single_cat_title(); ?>
-				<a href="<?= $feed_url; ?>" target="_blank" title="Assinar Feed RSS">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="Assinar Feed RSS">
+				<a href="<?= $feed_url; ?>" target="_blank" title="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
 				</a>
 			</h1>
 		<?php else: ?>
 			<h1>
-				<?php _e("PEARL"); ?>
-				<a href="<?= $feed_url; ?>" target="_blank" title="Assinar Feed RSS">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="Assinar Feed RSS">
+				<?php _e("PEARL", 'bvsaps'); ?>
+				<a href="<?= $feed_url; ?>" target="_blank" title="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
 				</a>
 			</h1>
 		<?php endif; ?>

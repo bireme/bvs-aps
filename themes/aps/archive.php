@@ -1,7 +1,7 @@
 <?php global $wp_query; 
 
 $already_print_thumb = false;
-$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? 'SOF' : 'PEARL';
+$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? __('SOF', 'bvsaps') : __('PEARL', 'bvsaps');
 
 $feed_url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $feed_url = str_replace("?", "/feed/?", $feed_url);
@@ -20,8 +20,8 @@ get_header(); ?>
 
 		<h1>
 			<?php print $post_type . ": "; single_cat_title(); ?>
-			<a href="<?= $feed_url; ?>" target="_blank" title="Assinar Feed RSS">
-				<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="Assinar Feed RSS">
+			<a href="<?= $feed_url; ?>" target="_blank" title="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+				<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
 			</a>
 		</h1>
 
