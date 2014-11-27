@@ -129,14 +129,21 @@ function kriesi_pagination($pages = '', $range = 2) {
 function term_link_filter( $url, $term, $taxonomy ) {
     
     global $wp_query;
-    
+    global $site_lang;
+
+    // post type
     $post_type = $wp_query->query['post_type'];
     if(strpos($url, "?") === false) {
-        return $url . "?post_type=" . $post_type;
+        $url = $url . "?post_type=" . $post_type;
     } else {
-        return $url . "&post_type=" . $post_type;
+        $url = $url . "&post_type=" . $post_type;
     }
-   
+
+    // lang
+    $url = $url . "&l=" . $site_lang;
+    
+    return $url;
+
 }
 add_filter('term_link', 'term_link_filter', 10, 3);
 

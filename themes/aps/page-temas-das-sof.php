@@ -1,5 +1,7 @@
 <?php 
 
+load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages');
+
 global $wp_query;
 
 $wp_query->query['post_type'] = "aps";

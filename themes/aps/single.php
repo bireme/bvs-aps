@@ -1,5 +1,7 @@
 <?php 
 
+load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages');
+
 global $wp_query; 
 $post_type = ($wp_query->query_vars['post_type'] == 'aps') ? __('SOF', 'bvsaps') : __('PEARL', 'bvsaps');
 

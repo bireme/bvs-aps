@@ -1,3 +1,5 @@
+<?php load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages'); ?>
+
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
