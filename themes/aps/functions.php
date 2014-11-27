@@ -2,13 +2,13 @@
 
 // THIS THEME USES wp_nav_menu() IN TWO LOCATIONS FOR CUSTOM MENU.
 if ( function_exists( 'register_nav_menus' ) ) {
-	register_nav_menus(
+    register_nav_menus(
         array(
             'menu-pt_BR' => 'Menu pt_BR',
             'menu-en_US' => 'Menu en_US',
             'menu-es_ES' => 'Menu es_ES'
         )
-	);
+    );
 }
 
 $LANGS = array(
@@ -78,25 +78,25 @@ function aps_widgets_init() {
     global $LANGS;
 
     foreach($LANGS as $site_lang => $lang_name) {
-    	if ( function_exists('register_sidebar') )
-    	register_sidebar(array(
-    		'name' => "Home ($lang_name)",
-    		'id' => 'homepage-' . strtolower($site_lang),
-    	    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    	    'after_widget' => '</div>',
-    	    'before_title' => '<h2>',
-    	    'after_title' => '</h2>',
-    	)); 
+        if ( function_exists('register_sidebar') )
+        register_sidebar(array(
+            'name' => "Home ($lang_name)",
+            'id' => 'homepage-' . strtolower($site_lang),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>',
+        )); 
 
 
-    	register_sidebar(array(
-    		'name' => "Footer ($lang_name)",
-    		'id' => 'footer-page-' . strtolower($site_lang),
-    	    'before_widget' => '',
-    	    'after_widget' => '',
-    	    'before_title' => '<h2>',
-    	    'after_title' => '</h2>',
-    	)); 
+        register_sidebar(array(
+            'name' => "Footer ($lang_name)",
+            'id' => 'footer-page-' . strtolower($site_lang),
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>',
+        )); 
     }
     
 }
@@ -168,8 +168,6 @@ function ttruncat($text,$numb) {
     return $text; 
 }
 
-<<<<<<< HEAD
-=======
 function append_query_string() {
     global $site_lang, $wp_query;
 
@@ -422,8 +420,7 @@ function translate_term_name($term){
 add_filter('term_name', 'translate_term_name');
 add_filter('single_term_title', 'extract_text_by_language_markup');
 
-
->>>>>>> 76bab9b47ec80d91aeb2396979fa473efc428cd9
+add_theme_support( 'post-thumbnails' );
 add_image_size( 'single-thumb', 500, 100, true ); // (cropped)
 add_image_size( 'single-thumb-square', 500, 300, true ); // (cropped)
 
