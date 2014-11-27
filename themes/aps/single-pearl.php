@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+
+load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages');
+
+get_header(); ?>
 
 <div class="single pearl">
 	
@@ -8,7 +12,7 @@
 			
 			<div class="item">
 
-				<h3 class="post-type"><?php _e("PEARL"); ?></h3>
+				<h3 class="post-type"><?php _e("PEARL", 'bvsaps'); ?></h3>
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(''); ?></a></h2>
 				<div class="category"><a href="<?php the_permalink(); ?>"><?php the_field('numero_data_autoria'); ?></a></div>
 

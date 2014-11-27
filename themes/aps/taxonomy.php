@@ -1,16 +1,13 @@
-<?php get_header(); ?>
+<?php 
+
+load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages');
+
+get_header(); ?>
 
 <div class="archive">
 	
 	<div class="container">
 	
-		<?php
-
-		global $wp_query;
-		// print_r($wp_query);
-
-		?>
-
 		<h1><?php single_cat_title(); ?></h1>
 
 		<?php if(is_tax()): ?>

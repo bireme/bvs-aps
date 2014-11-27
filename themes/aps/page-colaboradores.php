@@ -1,4 +1,8 @@
-<?php // template name: Colaboradores ?>
+<?php // template name: Colaboradores 
+
+load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages');
+
+?>
 <?php get_header(); ?>
 
 <div class="single colab">

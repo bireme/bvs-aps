@@ -38,7 +38,7 @@ h2 { font-size: 16pt; }
 h3 { font-size: 14pt; }
 h4 { font-size: 12pt; }
 p {
-	margin: 20px 0;
+	margin: 12px 0;
 }
 
 .banner-container {
@@ -271,11 +271,11 @@ footer .container > div {
 }
 .single.pearl h3.title {
 	text-align: left;
-	font-size: 14pt;
+	font-size: 11pt;
 	color: black;
 	letter-spacing: -1px;
 	border-bottom: 1px solid #000;
-	padding-bottom: 5px;
+	padding-bottom: 0;
 	margin-top: 20px;
 }
 .single.pearl {
@@ -317,7 +317,7 @@ footer .container > div {
 	width: 100%;
 }
 .archive.aps .item {
-	margin: 0 0 40px 0;
+	margin: 0 0 20px 0;
 }
 .archive.aps .item h3 {
 	margin: 0 0 -10px 0;
@@ -329,4 +329,17 @@ footer .container > div {
 }
 .single.pearl .category {
 	margin-bottom: 0;
+}
+#languages_list {
+	width: 120px;
+	float: right;
+}
+#languages_list li {
+	display: inline-block;
+	float: left;
+	padding: 0 5px;
+	border-right: 1px solid #fff;
+}
+#languages_list li:last-child {
+	border-right: none;
 }

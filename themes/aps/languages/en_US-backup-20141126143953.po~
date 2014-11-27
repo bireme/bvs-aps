@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BVS APS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Wed Nov 26 2014 12:34:54 GMT-0200 (BRST)\n"
+"PO-Revision-Date: Wed Nov 26 2014 12:38:17 GMT-0200 (BRST)\n"
+"Last-Translator: moacir <moa.moda@gmail.com>\n"
+"Language-Team: \n"
+"Language: English (USA)\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Loco-Target-Locale: en_US"
+
+#: ../page-temas-das-sof.php:28
+#, fuzzy
+msgid "Áreas Temáticas"
+msgstr "Thematic Areas"
+
+#: ../page-temas-das-sof.php:57
+msgid "Profissionais"
+msgstr "Professionals"
+
+#: ../page-temas-das-sof.php:84 ../single.php:54
+msgid "CIAP2"
+msgstr ""
+
+#: ../page-temas-das-sof.php:111 ../single.php:74
+msgid "Grau da Evidência"
+msgstr ""
+
+#: ../page-temas-das-sof.php:138
+msgid "Teleconsultores"
+msgstr ""
+
+#: ../archive.php:4 ../archive-pearl.php:4 ../archive-aps.php:4 ../archive-aps.
+#: php:35 ../single.php:4 ../single.php:16 ../header.php:69
+msgid "SOF"
+msgstr ""
+
+#: ../archive.php:4 ../archive-pearl.php:4 ../archive-pearl.php:33 ../archive-aps.
+#: php:4 ../single-pearl.php:11 ../single.php:4
+msgid "PEARL"
+msgstr ""
+
+#: ../archive.php:23 ../archive.php:24 ../archive-pearl.php:27 ../archive-pearl.
+#: php:28 ../archive-pearl.php:34 ../archive-pearl.php:35 ../archive-aps.php:29 ..
+#: archive-aps.php:30 ../archive-aps.php:36 ../archive-aps.php:37
+msgid "Assinar Feed RSS"
+msgstr ""
+
+#: ../404.php:9
+msgid "Erro: Página não encontrada"
+msgstr ""
+
+#: ../404.php:10
+msgid ""
+"A Página que você procura não foi encontrada, por favor verifique e tente "
+"novamente."
+msgstr ""
+
+#: ../single-pearl.php:28
+msgid "Área Temática"
+msgstr ""
+
+#: ../single-pearl.php:40
+msgid "Questão Clínica"
+msgstr ""
+
+#: ../single-pearl.php:45
+msgid "Resposta Baseada em Evidência"
+msgstr ""
+
+#: ../single-pearl.php:50
+msgid "Alertas"
+msgstr ""
+
+#: ../single-pearl.php:55
+msgid "Contexto"
+msgstr ""
+
+#: ../single-pearl.php:60
+msgid ""
+"Comentários sobre a aplicabilidade do estudo para APS no contexto do SUS, "
+"sob o ponto de vista clínico, de gestão da saúde e para o público em geral"
+msgstr ""
+
+#: ../single-pearl.php:65
+msgid "Referências bibliográficas"
+msgstr ""
+
+#: ../single.php:46
+msgid "Teleconsultor"
+msgstr ""
+
+#: ../single.php:50
+msgid "Profissional Solicitante"
+msgstr ""
+
+#: ../single.php:58
+msgid "DeCS/MeSH"
+msgstr ""
+
+#: ../header.php:22
+msgid ""
+"You are using an <strong>outdated</strong> browser. Please <a href=\"http:"
+"//browsehappy.com/\">upgrade your browser</a> to improve your experience."
+msgstr ""
+
+#: ../header.php:31
+msgid "Entre em contato conosco"
+msgstr ""
+
+#: ../header.php:31
+msgid "Contato"
+msgstr ""
+
+#: ../header.php:70
+msgid "BVS APS"
+msgstr ""
+
+#: ../header.php:73
+msgid "Temas das SOF"
+msgstr ""
+
+#: ../functions.php:53 ../functions.php:61
+msgid "Espanol"
+msgstr ""
+
+#: ../functions.php:54 ../functions.php:58
+msgid "English"
+msgstr ""
+
+#: ../functions.php:57 ../functions.php:62
+msgid "Portugues"
+msgstr ""
