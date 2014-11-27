@@ -84,7 +84,7 @@ get_header(); ?>
 					<p><?php the_content(); ?></p>
 				</div>
 				
-				<b>Bibliografia Selecionada</b><br>
+				<b><?php _e('Bibliografia Selecionada', 'bvsaps'); ?></b><br>
 				<p><?php the_field('bibliografia_selecionada'); ?></p>
 
 				<div class="clear"></div>
