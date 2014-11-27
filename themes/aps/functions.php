@@ -91,8 +91,7 @@ function ttruncat($text,$numb) {
     return $text; 
 }
 
-
-
+add_theme_support( 'post-thumbnails' );
 add_image_size( 'single-thumb', 500, 100, true ); // (cropped)
 add_image_size( 'single-thumb-square', 500, 300, true ); // (cropped)
 
