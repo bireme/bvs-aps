@@ -1,7 +1,9 @@
 <?php global $wp_query; 
 
+load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages');
+
 $already_print_thumb = false;
-$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? __('SOF') : __('PEARL');
+$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? __('SOF', 'bvsaps') : __('PEARL', 'bvsaps');
 
 if(is_tax()) {	
 	$taxonomies = get_the_taxonomies(); 
@@ -10,6 +12,9 @@ if(is_tax()) {
 	$taxonomy_title = explode(":", $taxonomies[$taxonomy]);
 	$taxonomy_title = $taxonomy_title[0];
 }
+
+$feed_url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$feed_url = str_replace("?", "/feed/?", $feed_url);
 
 get_header(); ?>
 
@@ -21,9 +26,19 @@ get_header(); ?>
 
 		<?php if(is_tax()): ?>
 			<h3><?php print $post_type; ?> - <?php print $taxonomy_title; ?></h3>
-			<h1><?php single_cat_title(); ?></h1>
+			<h1>
+				<?php single_cat_title(); ?>
+				<a href="<?= $feed_url; ?>" target="_blank" title="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+				</a>
+			</h1>
 		<?php else: ?>
-			<h1><?php _e("SOF"); ?></h1>
+			<h1>
+				<?php _e("SOF", 'bvsaps'); ?>
+				<a href="<?= $feed_url; ?>" target="_blank" title="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+				</a>
+			</h1>
 		<?php endif; ?>
 	
 		<?php while(have_posts()): the_post(); ?>

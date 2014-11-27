@@ -1,3 +1,5 @@
+<?php load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages'); ?>
+
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
@@ -26,9 +28,9 @@
     <header>
         <div class="top">
             <span>
-                <a href="#" title="Site em Espanhol">español</a> |
-                <a href="#" title="Site em Inglês">english</a>
-                <a href="#" class="contato" title="Entre em contato conosco">Contato</a>
+                <?php global $site_lang; ?>
+                <?php create_language_list($site_lang); ?>
+                <a href="#" class="contato" title="<?php _e('Entre em contato conosco', 'bvsaps'); ?>"><?php _e('Contato', 'bvsaps'); ?></a>
             </span>
         </div>
 
@@ -50,7 +52,7 @@
             </div>
         </div>
         
-        <?php wp_nav_menu( array('menu' => 'Topo' )); ?>
+        <?php wp_nav_menu( array('theme_location' => 'menu-'. $site_lang)); ?>
 
         <div class="container">
             <div class="search">
@@ -66,11 +68,11 @@
                     <a href="javascript:search_submit();" id="search-submit"><img src="<?= get_stylesheet_directory_uri(); ?>/img/search-button.jpg"></a>
                     
                     <div style="clear:both"></div>
-                    <input type="radio" name="where" value="blog" checked> SOF
-                    <input type="radio" name="where" value="literature"> BVS APS
+                    <input type="radio" name="where" value="blog" checked> <?php _e('SOF', 'bvsaps'); ?>
+                    <input type="radio" name="where" value="literature"> <?php _e('BVS APS', 'bvsaps'); ?>
 
                     <ul class="links">
-                        <li><a href="<?= get_permalink( get_page_by_path( 'temas-das-sof' ) ); ?>">Temas da SOF</a></li>
+                        <li><a href="<?= get_permalink( get_page_by_path( 'temas-das-sof' ) ); ?>?l=<?= $site_lang; ?>"><?php _e('Temas das SOF', 'bvsaps'); ?></a></li>
                     </ul>
                 </form>
                 <div style="clear:both"></div>

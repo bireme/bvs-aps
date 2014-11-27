@@ -1,31 +1,33 @@
 <?php 
 
+load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages');
+
 global $wp_query;
 
 $wp_query->query['post_type'] = "aps";
 
 if(taxonomy_exists('area-tematica')) {
-	$areas = get_terms("area-tematica", 'orderby=count');
+	$areas = get_terms("area-tematica", 'orderby=name');
 	$taxonomy = 'area-tematica';
 } else {
-	$areas = get_terms("categoria-da-evidencia", 'orderby=count');
+	$areas = get_terms("categoria-da-evidencia", 'orderby=name');
 	$taxonomy = 'categoria-da-evidencia';
 }
 
-$profissionais = get_terms('tipo-de-profissional', 'orderby=count');
-$ciap2 = get_terms('ciap2', 'orderby=count');
-$grau_da_evidencia = get_terms('grau-da-evidencia', 'orderby=count');
-$teleconsultores = get_terms('teleconsultor', 'orderby=count');
+$profissionais = get_terms('tipo-de-profissional', 'orderby=name');
+$ciap2 = get_terms('ciap2', 'orderby=name');
+$grau_da_evidencia = get_terms('grau-da-evidencia', 'orderby=name');
+$teleconsultores = get_terms('teleconsultor', 'orderby=name');
 
 
 get_header(); ?>
-
+[]
 <div class="temas">
 	
 	<div class="container">
 		
 		<div class="block">
-			<h2><?php _e("Áreas Temáticas"); ?></h2>
+			<h2><?php _e("Áreas Temáticas", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($areas as $area): ?>
 					
@@ -54,7 +56,7 @@ get_header(); ?>
 		</div>
 
 		<div class="block">
-			<h2><?php _e("Profissionais"); ?></h2>
+			<h2><?php _e("Profissionais", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($profissionais as $profissional): ?>
 					<?php 
@@ -81,7 +83,7 @@ get_header(); ?>
 		</div>
 
 		<div class="block">
-			<h2><?php _e("CIAP2"); ?></h2>
+			<h2><?php _e("CIAP2", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($ciap2 as $item): ?>
 					<?php 
@@ -108,7 +110,7 @@ get_header(); ?>
 		</div>
 
 		<div class="block">
-			<h2><?php _e("Grau da Evidência"); ?></h2>
+			<h2><?php _e("Grau da Evidência", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($grau_da_evidencia as $item): ?>
 					<?php 
@@ -135,7 +137,7 @@ get_header(); ?>
 		</div>
 
 		<div class="block">
-			<h2><?php _e("Teleconsultores"); ?></h2>
+			<h2><?php _e("Teleconsultores", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($teleconsultores as $item): ?>
 					<?php 

@@ -1,7 +1,9 @@
 <?php 
 
+load_theme_textdomain('bvsaps', get_stylesheet_directory() . '/languages');
+
 global $wp_query; 
-$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? 'SOF' : 'PEARL';
+$post_type = ($wp_query->query_vars['post_type'] == 'aps') ? __('SOF', 'bvsaps') : __('PEARL', 'bvsaps');
 
 get_header(); ?>
 
@@ -13,7 +15,7 @@ get_header(); ?>
 			
 			<div class="item">
 
-				<h3 class="post-type"><?php _e("SOF"); ?></h3>
+				<h3 class="post-type"><?php _e("SOF", 'bvsaps'); ?></h3>
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				
 				<?php // Estes campos são os mesmos. Coloquei os dois pois há ambientes em que a taxonomy foi criada como area-tematica e outros
@@ -54,8 +56,20 @@ get_header(); ?>
 							<b><?php _e('CIAP2', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'ciap2'); ?><br>
 						<?php endif; ?>
 						
-						<?php $term_content = get_the_terms(get_the_ID(), 'decs'); if(!empty($term_content)): ?>
-							<b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'decs'); ?><br>
+						<?php if(function_exists('get_the_wpdecs_terms')): $wpdecs_terms = get_the_wpdecs_terms(); ?>
+							<b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b>
+							<?php $count = 0; foreach($wpdecs_terms as $term): ?>
+								
+								<?php if($count > 0) print ","; ?>
+
+								<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>
+								
+								<?php if(isset($term['qualifier']) and !empty($term['qualifier'])): ?>
+									(<?= join($term['qualifier'], ",") ?>)
+								<?php endif; ?>
+
+							<?php $count++; endforeach; ?>
+							<br>
 						<?php endif; ?>
 						
 						<?php $term_content = get_the_terms(get_the_ID(), 'grau-da-evidencia'); if(!empty($term_content)): ?>
@@ -70,7 +84,7 @@ get_header(); ?>
 					<p><?php the_content(); ?></p>
 				</div>
 				
-				<b>Bibliografia Selecionada</b><br>
+				<b><?php _e('Bibliografia Selecionada', 'bvsaps'); ?></b><br>
 				<p><?php the_field('bibliografia_selecionada'); ?></p>
 
 				<div class="clear"></div>
