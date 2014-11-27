@@ -11,6 +11,12 @@ if ( function_exists( 'register_nav_menus' ) ) {
 	);
 }
 
+$LANGS = array(
+    'pt_BR' => "Português",
+    'en_US' => "Inglês",
+    'es_ES' => "Espanhol",
+);
+
 $wpdecs_array_locale = array(
     'pt_BR' => 'pt',
     'en_US' => 'en',
@@ -68,26 +74,31 @@ function create_language_list($current_lang){
 
 add_action( 'widgets_init', 'aps_widgets_init' );
 function aps_widgets_init() {
-	
-	if ( function_exists('register_sidebar') )
-	register_sidebar(array(
-		'name' => "Home",
-		'id' => 'home',
-	    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	    'after_widget' => '</div>',
-	    'before_title' => '<h2>',
-	    'after_title' => '</h2>',
-	)); 
+    
+    global $LANGS;
 
-	if ( function_exists('register_sidebar') )
-	register_sidebar(array(
-		'name' => "Footer",
-		'id' => 'carousel',
-	    'before_widget' => '',
-	    'after_widget' => '',
-	    'before_title' => '<h2>',
-	    'after_title' => '</h2>',
-	)); 
+    foreach($LANGS as $site_lang => $lang_name) {
+    	if ( function_exists('register_sidebar') )
+    	register_sidebar(array(
+    		'name' => "Home ($lang_name)",
+    		'id' => 'homepage-' . strtolower($site_lang),
+    	    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    	    'after_widget' => '</div>',
+    	    'before_title' => '<h2>',
+    	    'after_title' => '</h2>',
+    	)); 
+
+
+    	register_sidebar(array(
+    		'name' => "Footer ($lang_name)",
+    		'id' => 'footer-page-' . strtolower($site_lang),
+    	    'before_widget' => '',
+    	    'after_widget' => '',
+    	    'before_title' => '<h2>',
+    	    'after_title' => '</h2>',
+    	)); 
+    }
+    
 }
 
 function kriesi_pagination($pages = '', $range = 2) {  
@@ -141,7 +152,7 @@ function term_link_filter( $url, $term, $taxonomy ) {
 
     // lang
     $url = $url . "&l=" . $site_lang;
-    
+
     return $url;
 
 }
