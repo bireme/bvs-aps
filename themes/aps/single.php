@@ -83,7 +83,11 @@ get_header(); ?>
 				<div class="content">
 					<p><?php the_content(); ?></p>
 				</div>
-				
+
+				<div class="notices">
+					<p><?php the_field('observacoes'); ?></p>
+				</div>
+
 				<b><?php _e('Bibliografia Selecionada', 'bvsaps'); ?></b><br>
 				<p><?php the_field('bibliografia_selecionada'); ?></p>
 
