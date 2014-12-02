@@ -127,6 +127,15 @@ p {
 	color: #54a7ff;
 	font-weight: bold;
 }
+.sow-carousel-wrapper ul.sow-carousel-items{
+	height: 240px !important;
+}
+.sow-carousel-wrapper ul.sow-carousel-items li.sow-carousel-item {
+	overflow-x: visible !important;
+}
+.widget_sow-post-carousel{
+	margin-bottom: 30px !important;;
+}
 .widget_links {
 	width: 33%;
 	float: left;
