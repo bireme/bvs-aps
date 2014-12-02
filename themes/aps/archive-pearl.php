@@ -26,16 +26,20 @@ get_header(); ?>
 			<h3><?php print $post_type; ?> - <?php print $taxonomy_title; ?></h3>
 			<h1>
 				<?php single_cat_title(); ?>
-				<a href="<?= $feed_url; ?>" target="_blank" title="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
-				</a>
+				<?php if(strpos($_SERVER['REQUEST_URI'], 'page') == false AND strpos($_SERVER['REQUEST_URI'], 'pagina') == false): ?>
+					<a href="<?= $feed_url; ?>" target="_blank" title="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+						<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+					</a>
+				<?php endif; ?>
 			</h1>
 		<?php else: ?>
 			<h1>
 				<?php _e("PEARL", 'bvsaps'); ?>
-				<a href="<?= $feed_url; ?>" target="_blank" title="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
-				</a>
+				<?php if(strpos($_SERVER['REQUEST_URI'], 'page') == false AND strpos($_SERVER['REQUEST_URI'], 'pagina') == false): ?>
+					<a href="<?= $feed_url; ?>" target="_blank" title="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+						<img src="<?= get_stylesheet_directory_uri(); ?>/img/rss.png" alt="<?php _e('Assinar Feed RSS', 'bvsaps'); ?>">
+					</a>
+				<?php endif; ?>
 			</h1>
 		<?php endif; ?>
 			
