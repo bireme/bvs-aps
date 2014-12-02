@@ -280,9 +280,9 @@ footer .container > div {
 }
 .single.pearl h3.title {
 	text-align: left;
-	font-size: 11pt;
+	font-size: 12pt;
 	color: black;
-	letter-spacing: -1px;
+	letter-spacing: 0px;
 	border-bottom: 1px solid #000;
 	padding-bottom: 0;
 	margin-top: 20px;
