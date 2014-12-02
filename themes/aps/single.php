@@ -63,9 +63,13 @@ get_header(); ?>
 								<?php if($count > 0) print ","; ?>
 
 								<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>
-								
+									
+								<?php $quals = array(); foreach($term['qualifier'] as $qual) 
+									$quals[] = $qual['name'];
+								?>
 								<?php if(isset($term['qualifier']) and !empty($term['qualifier'])): ?>
-									(<?= join($term['qualifier'], ",") ?>)
+									<!-- (<?php _e("Qualificadores", 'bvsaps'); ?>: <?php print join($quals, ", "); ?>) -->
+									(<?php print join($quals, ", "); ?>)
 								<?php endif; ?>
 
 							<?php $count++; endforeach; ?>
