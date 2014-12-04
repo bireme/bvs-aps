@@ -55,12 +55,13 @@ get_header(); ?>
 			}
 			?>
 
+
 			<?php if(is_tax() and $already_print_thumb == false): ?>
 				<div class="thumb">
-					<img src="<?php echo z_taxonomy_image_url($wp_query->queried_object->term_id, 'single-thumb'); ?>" />
-					 <?php $already_print_thumb = true; ?>
+					<img src="<?php echo // z_taxonomy_image_url($wp_query->queried_object->term_id, 'single-thumb'); ?>" />
+					 <?php // $already_print_thumb = true; ?>
 				</div>
-			<?php endif; ?>
+			<?php endif; ?>			
 			
 			<div class="item">
 				
@@ -75,7 +76,7 @@ get_header(); ?>
 				<?php endif; ?>
 			
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				<?= the_post_thumbnail('research-thumb'); ?>
+				<?= // the_post_thumbnail('research-thumb'); ?>
 				<p><?php the_excerpt(); ?></p>
 
 			</div>
