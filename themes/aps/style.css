@@ -326,7 +326,8 @@ footer .container > div {
 	width: 100%;
 }
 .archive.aps .item {
-	margin: 0 0 20px 0;
+	margin: 20px 0 20px 0;
+	clear: both;
 }
 .archive.aps .item h3 {
 	margin: 0 0 -10px 0;
