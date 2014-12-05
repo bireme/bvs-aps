@@ -76,7 +76,7 @@ get_header(); ?>
 				<?php endif; ?>
 			
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				<?= // the_post_thumbnail('research-thumb'); ?>
+				<?= the_post_thumbnail('research-thumb'); ?>
 				<p><?php the_excerpt(); ?></p>
 
 			</div>
