@@ -35,6 +35,7 @@ get_header(); ?>
 					$total = 0;
 					$args = array(
 						'post_type' => 'aps',
+						'numberposts' => -1,
 						'tax_query' => array(
 							array(
 								'taxonomy' => $taxonomy,
@@ -63,6 +64,7 @@ get_header(); ?>
 					$total = 0;
 					$args = array(
 						'post_type' => 'aps',
+						'numberposts' => -1,
 						'tax_query' => array(
 							array(
 								'taxonomy' => 'tipo-de-profissional',
@@ -90,6 +92,7 @@ get_header(); ?>
 					$total = 0;
 					$args = array(
 						'post_type' => 'aps',
+						'numberposts' => -1,
 						'tax_query' => array(
 							array(
 								'taxonomy' => 'ciap2',
@@ -117,6 +120,7 @@ get_header(); ?>
 					$total = 0;
 					$args = array(
 						'post_type' => 'aps',
+						'numberposts' => -1,
 						'tax_query' => array(
 							array(
 								'taxonomy' => 'grau-da-evidencia',
@@ -144,6 +148,7 @@ get_header(); ?>
 					$total = 0;
 					$args = array(
 						'post_type' => 'aps',
+						'numberposts' => -1,
 						'tax_query' => array(
 							array(
 								'taxonomy' => 'teleconsultor',
