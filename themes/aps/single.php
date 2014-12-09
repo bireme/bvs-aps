@@ -59,17 +59,35 @@ get_header(); ?>
 						<?php if(function_exists('get_the_wpdecs_terms')): $wpdecs_terms = get_the_wpdecs_terms(); ?>
 							<b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b>
 							<?php $count = 0; foreach($wpdecs_terms as $term): ?>
+
+								<?php
+									$link = false;
+									$term_obj = get_term_by('name', $term['lang'][$wpdecs_array_locale[$site_lang]], 'decs');
+									if($term_obj != false) {
+										$link = get_term_link($term_obj, 'decs');
+									}
+								?>
 								
 								<?php if($count > 0) print ","; ?>
 
+								<!-- caso achar o link, printa o começo do <a> -->
+								<?php if($link != false): ?>
+									<a href="<?= $link; ?>" title="<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>">	
+								<?php endif; ?>
+
 								<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>
-									
+								
 								<?php $quals = array(); foreach($term['qualifier'] as $qual) 
 									$quals[] = $qual['name'];
 								?>
 								<?php if(isset($term['qualifier']) and !empty($term['qualifier'])): ?>
 									<!-- (<?php _e("Qualificadores", 'bvsaps'); ?>: <?php print join($quals, ", "); ?>) -->
 									(<?php print join($quals, ", "); ?>)
+								<?php endif; ?>
+
+								<!-- caso achar o link, printa o fim do <a> -->
+								<?php if($link != false): ?>
+									</a>	
 								<?php endif; ?>
 
 							<?php $count++; endforeach; ?>
