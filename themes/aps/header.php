@@ -39,11 +39,11 @@
 
                 <div class="banner">
                     <div class="bvs">
-                        <img src="<?= get_stylesheet_directory_uri(); ?>/img/logobvs.gif">
+                        <img src="<?= get_stylesheet_directory_uri(); ?>/img/<?php echo $site_lang; ?>/logo.png">
                     </div>
 
                     <div class="title">
-                        <img src="<?= get_stylesheet_directory_uri(); ?>/img/title3.gif">
+                        <img src="<?= get_stylesheet_directory_uri(); ?>/img/<?php echo $site_lang; ?>/title.png">
                     </div>
 
                     <div class="clear"></div>
