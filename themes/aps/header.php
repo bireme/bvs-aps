@@ -62,14 +62,13 @@
                     $("#searchForm").submit();
                 }
                 </script>
-                
-                <form action="http://pesquisa.bvs.br/telessaude/" name="search" method="get" id="searchForm" >
-                    <input type="text" name="q">
+		<form action="http://pesquisa.bvs.br/aps/" name="search" method="get" id="searchForm" >
+                    <input type="text" name="fb">
                     <a href="javascript:search_submit();" id="search-submit"><img src="<?= get_stylesheet_directory_uri(); ?>/img/search-button.jpg"></a>
                     
                     <div style="clear:both"></div>
-                    <input type="radio" name="where" value="blog" checked> <?php _e('SOF', 'bvsaps'); ?>
-                    <input type="radio" name="where" value="literature"> <?php _e('BVS APS', 'bvsaps'); ?>
+                    <input type="radio" name="filter[db][]" id="sof" value="SOF" checked> <label for="sof"><?php _e('SOF', 'bvsaps'); ?></label>
+                    <input type="radio" name="filter[db][]" id="aps" value=""> <label for="aps"><?php _e('BVS APS', 'bvsaps'); ?></label>
 
                     <ul class="links">
                         <li><a href="<?= get_permalink( get_page_by_path( 'temas-das-sof' ) ); ?>?l=<?= $site_lang; ?>"><?php _e('Temas das SOF', 'bvsaps'); ?></a></li>
