@@ -63,7 +63,7 @@
                 }
                 </script>
 		<form action="http://pesquisa.bvs.br/aps/" name="search" method="get" id="searchForm" >
-                    <input type="text" name="fb">
+                    <input type="text" name="q">
                     <a href="javascript:search_submit();" id="search-submit"><img src="<?= get_stylesheet_directory_uri(); ?>/img/search-button.jpg"></a>
                     
                     <div style="clear:both"></div>
