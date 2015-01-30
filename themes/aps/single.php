@@ -45,7 +45,8 @@ get_header(); ?>
 				<div class="dados">
 					<p>
 						<?php $term_content = get_the_terms(get_the_ID(), 'teleconsultor'); if(!empty($term_content)): ?>
-							<b><?php _e('Teleconsultor', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'teleconsultor'); ?><br>
+							<!--b><?php _e('Teleconsultor', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'teleconsultor'); ?><br-->
+                            <b><?php _e('Núcleo Telessaúde', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'teleconsultor'); ?><br>
 						<?php endif; ?>
 						
 						<?php $term_content = get_the_terms(get_the_ID(), 'tipo-de-profissional'); if(!empty($term_content)): ?>
@@ -72,7 +73,7 @@ get_header(); ?>
 
 								<!-- caso achar o link, printa o começo do <a> -->
 								<?php if($link != false): ?>
-									<a href="<?= $link; ?>" title="<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>">	
+									<a href="<?= $link; ?>" title="<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>">
 								<?php endif; ?>
 
 								<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>
@@ -82,12 +83,13 @@ get_header(); ?>
 								?>
 								<?php if(isset($term['qualifier']) and !empty($term['qualifier'])): ?>
 									<!-- (<?php _e("Qualificadores", 'bvsaps'); ?>: <?php print join($quals, ", "); ?>) -->
-									(<?php print join($quals, ", "); ?>)
+									<!-- (<?php print join($quals, ", "); ?>) -->
+									(<?php print join($term["qualifier"], ", "); ?>)
 								<?php endif; ?>
 
 								<!-- caso achar o link, printa o fim do <a> -->
 								<?php if($link != false): ?>
-									</a>	
+									</a>
 								<?php endif; ?>
 
 							<?php $count++; endforeach; ?>
