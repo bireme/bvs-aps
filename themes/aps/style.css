@@ -320,11 +320,14 @@ footer .container > div {
 	float: left;
 	width: 200px;
 }
+/*
 .archive.aps .item .thumb img {
 	margin: 0;
 	float: left;
 	width: 100%;
 }
+*/
+.archive.aps .item .thumb img { display: none; }
 .archive.aps .item {
 	margin: 20px 0 20px 0;
 	clear: both;
