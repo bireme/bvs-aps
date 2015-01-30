@@ -101,7 +101,7 @@ msgid "Referências bibliográficas"
 msgstr ""
 
 #: ../single.php:46
-msgid "Teleconsultor"
+msgid "Núcleo Telessaúde"
 msgstr ""
 
 #: ../single.php:50
