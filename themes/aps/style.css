@@ -356,3 +356,4 @@ footer .container > div {
 #languages_list li:last-child {
 	border-right: none;
 }
+.home ul { list-style-type: none; }
