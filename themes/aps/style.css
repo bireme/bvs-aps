@@ -356,4 +356,4 @@ footer .container > div {
 #languages_list li:last-child {
 	border-right: none;
 }
-.home .widget_links ul, .temas ul { list-style-type: none; }
+.home .widget_links ul, .temas ul, .item ul { list-style-type: none; }
