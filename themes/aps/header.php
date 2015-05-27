@@ -63,7 +63,7 @@
                     
                     <div style="clear:both"></div>
                     <input type="radio" name="filter[db][]" id="sof" value="SOF" checked> <label for="sof"><?php _e('SOF', 'bvsaps'); ?></label>
-                    <input type="radio" name="filter[db][]" id="aps"> <label for="aps"><?php _e('BVS APS', 'bvsaps'); ?></label>
+                    <input type="radio" name="filter[db][]" id="aps" value=""> <label for="aps"><?php _e('BVS APS', 'bvsaps'); ?></label>
 
                     <ul class="links">
                         <li><a href="<?= get_permalink( get_page_by_path( 'temas-das-sof' ) ); ?>?l=<?= $site_lang; ?>"><?php _e('Temas das SOF', 'bvsaps'); ?></a></li>
