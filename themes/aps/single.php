@@ -102,8 +102,7 @@ get_header(); ?>
 					</p>
 				</div>
 
-				<div style="clear:both"></div>
-
+				
 				<div class="content">
 					<p><?php the_content(); ?></p>
 				</div>

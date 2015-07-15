@@ -38,7 +38,7 @@ h2 { font-size: 16pt; }
 h3 { font-size: 14pt; }
 h4 { font-size: 12pt; }
 p {
-	margin: 12px 0;
+	margin: 0px 0;
 }
 
 .banner-container {
@@ -212,7 +212,7 @@ footer .container > div {
 	color: #90C3DD;
 }
 .archive .item h2 {
-	margin-bottom: -15px;
+	xmargin-bottom: -15px;
 }
 .archive .item h2 a {
 	color: #78B421;	
@@ -248,17 +248,20 @@ footer .container > div {
 	text-decoration: underline;
 }
 .single .item .category {
-	margin-top: -10px;
-	margin-bottom: -10px;
+	text-align: right;
+	margin-right:60px;
 }
 .single .item .category a {
 	color: #90C3DD;
 	font-size: 11pt;
 }
 .single.aps .item .thumb img {
-	width: 250px;
-	margin: 30px 20px 15px 0;
-	float:left;
+    float: right;
+    margin: -5px 20px 15px 23px;
+    width: 250px;
+	border-left: 1px solid #b5d1e7;
+	border-right: 1px solid #b5d1e7;
+		border-top: 1px solid #b5d1e7;
 }
 .single.aps .item .dados a {
 	font-weight: normal;
@@ -357,3 +360,28 @@ footer .container > div {
 	border-right: none;
 }
 .home .widget_links ul, .temas ul, .item ul { list-style-type: none; }
+.dados{
+  background: #ecfbfd none repeat scroll 0 0;
+    clear: both;
+    float: right;
+    margin-right: 20px;
+    margin-top: -15px;
+    width: 250px;
+	font-size: 10.5px;
+	margin-left: 23px;
+	border-left: 1px solid #b5d1e7;
+	border-right: 1px solid #b5d1e7;
+	border-bottom: 1px solid #b5d1e7;
+}
+
+.dados p{
+    margin: 5px 10px;
+	line-height: 15pt;
+}
+
+.category a { xbackground: #ecfbfd none repeat scroll 0 0;
+	xborder-left: 1px solid #b5d1e7;
+	xborder-right: 1px solid #b5d1e7;
+	xborder-top: 1px solid #b5d1e7;
+
+}
