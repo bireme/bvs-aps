@@ -424,3 +424,6 @@ add_theme_support( 'post-thumbnails' );
 add_image_size( 'single-thumb', 500, 100, true ); // (cropped)
 add_image_size( 'single-thumb-square', 500, 300, true ); // (cropped)
 
+if ( is_plugin_active( 'yop-poll/yop_poll.php' ) ) {
+    require_once( 'poll.php' );
+}

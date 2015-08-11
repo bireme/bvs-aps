@@ -254,14 +254,17 @@ footer .container > div {
 .single .item .category a {
 	color: #90C3DD;
 	font-size: 11pt;
+	display: block;
 }
 .single.aps .item .thumb img {
     float: right;
-    margin: -5px 20px 15px 23px;
     width: 250px;
+/*
+    margin: -5px 20px 15px 23px;
 	border-left: 1px solid #b5d1e7;
 	border-right: 1px solid #b5d1e7;
-		border-top: 1px solid #b5d1e7;
+	border-top: 1px solid #b5d1e7;
+*/
 }
 .single.aps .item .dados a {
 	font-weight: normal;
@@ -269,11 +272,25 @@ footer .container > div {
 .single.aps .item .dados a:hover {
 	text-decoration: underline;
 }
+.single.aps .item .content {
+	margin-top: 20px;
+}
 .single.aps .item .content a {
 	text-decoration: underline;
 }
 .single.aps .item .content a:hover {
 	text-decoration: none;
+}
+.single.aps .category {
+	text-align: center;
+	background-color: #FFF;
+	margin: 0;
+	padding: 5px 0;
+}
+.single.aps .yop-poll {
+	float: right;
+    margin: 0 45px 0;
+    clear: both;
 }
 .footer .footer1 img {
 	float: left;
@@ -361,22 +378,23 @@ footer .container > div {
 }
 .home .widget_links ul, .temas ul, .item ul { list-style-type: none; }
 .dados{
-  background: #ecfbfd none repeat scroll 0 0;
+    background: #ecfbfd none repeat scroll 0 0;
     clear: both;
     float: right;
-    margin-right: 20px;
-    margin-top: -15px;
     width: 250px;
 	font-size: 10.5px;
-	margin-left: 23px;
 	border-left: 1px solid #b5d1e7;
 	border-right: 1px solid #b5d1e7;
+	border-top: 1px solid #b5d1e7;
 	border-bottom: 1px solid #b5d1e7;
+	margin: 20px 20px 0 20px;
 }
 
-.dados p{
+.dados p {
+	clear: both;
     margin: 5px 10px;
 	line-height: 15pt;
+	padding-top: 5px;
 }
 
 .category a { xbackground: #ecfbfd none repeat scroll 0 0;
