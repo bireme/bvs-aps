@@ -18,7 +18,7 @@ get_header(); ?>
 				<h3 class="post-type"><?php _e("SOF", 'bvsaps'); ?></h3>
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-				<?php if ( function_exists('show_yop_poll_template') ) { show_yop_poll_template(); } ?>
+				<div class="subtitle"><?php the_terms(get_the_ID(), 'teleconsultor'); ?> | <?php the_date('d M Y'); ?> | ID: sof-<?php the_ID(); ?></div>
 
 				<div class="dados">
 					
@@ -53,13 +53,8 @@ get_header(); ?>
 					</div>
 				
 					<p>
-						<?php $term_content = get_the_terms(get_the_ID(), 'teleconsultor'); if(!empty($term_content)): ?>
-							<!--b><?php _e('Teleconsultor', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'teleconsultor'); ?><br-->
-                            <b><?php _e('Núcleo Telessaúde', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'teleconsultor'); ?><br>
-						<?php endif; ?>
-						
 						<?php $term_content = get_the_terms(get_the_ID(), 'tipo-de-profissional'); if(!empty($term_content)): ?>
-							<b><?php _e('Profissional Solicitante', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'tipo-de-profissional'); ?><br>
+							<b><?php _e('Solicitante', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'tipo-de-profissional'); ?><br>
 						<?php endif; ?>
 						
 						<?php $term_content = get_the_terms(get_the_ID(), 'ciap2'); if(!empty($term_content)): ?>
@@ -67,42 +62,46 @@ get_header(); ?>
 						<?php endif; ?>
 						
 						<?php if(function_exists('get_the_wpdecs_terms')): $wpdecs_terms = get_the_wpdecs_terms(); ?>
-							<b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b>
-							<?php $count = 0; foreach($wpdecs_terms as $term): ?>
+							<?php if ( $wpdecs_terms ): ?>
+								<b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b>
+								<?php $count = 0; foreach($wpdecs_terms as $term): ?>
 
-								<?php
-									$link = false;
-									$term_obj = get_term_by('name', $term['lang'][$wpdecs_array_locale[$site_lang]], 'decs');
-									if($term_obj != false) {
-										$link = get_term_link($term_obj, 'decs');
-									}
-								?>
-								
-								<?php if($count > 0) print ","; ?>
+									<?php
+										$link = false;
+										$name = $term['lang'][$wpdecs_array_locale[$site_lang]];
+										if ( ! isset($name) ) $name = $term['term'];
+										$term_obj = get_term_by('name', $name, 'decs');
+										
+										if($term_obj != false)
+											$link = get_term_link($term_obj, 'decs');
+									?>
+									
+									<?php if($count > 0) print ","; ?>
 
-								<!-- caso achar o link, printa o começo do <a> -->
-								<?php if($link != false): ?>
-									<a href="<?= $link; ?>" title="<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>">
-								<?php endif; ?>
+									<!-- caso achar o link, printa o começo do <a> -->
+									<?php if($link != false): ?>
+										<a href="<?= $link; ?>" title="<?= $name; ?>">
+									<?php endif; ?>
 
-								<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>
-								
-								<?php $quals = array(); foreach($term['qualifier'] as $qual) 
-									$quals[] = $qual['name'];
-								?>
-								<?php if(isset($term['qualifier']) and !empty($term['qualifier'])): ?>
-									<!-- (<?php _e("Qualificadores", 'bvsaps'); ?>: <?php print join($quals, ", "); ?>) -->
-									<!-- (<?php print join($quals, ", "); ?>) -->
-									(<?php print join($term["qualifier"], ", "); ?>)
-								<?php endif; ?>
+									<?= $name; ?>
+									
+									<?php $quals = array(); foreach($term['qualifier'] as $qual) 
+										$quals[] = $qual['name'];
+									?>
+									<?php if(isset($term['qualifier']) and !empty($term['qualifier'])): ?>
+										<!-- (<?php _e("Qualificadores", 'bvsaps'); ?>: <?php print join($quals, ", "); ?>) -->
+										<!-- (<?php print join($quals, ", "); ?>) -->
+										(<?php print join($term["qualifier"], ", "); ?>)
+									<?php endif; ?>
 
-								<!-- caso achar o link, printa o fim do <a> -->
-								<?php if($link != false): ?>
-									</a>
-								<?php endif; ?>
+									<!-- caso achar o link, printa o fim do <a> -->
+									<?php if($link != false): ?>
+										</a>
+									<?php endif; ?>
 
-							<?php $count++; endforeach; ?>
-							<br>
+								<?php $count++; endforeach; ?>
+								<br>
+							<?php endif; ?>
 						<?php endif; ?>
 						
 						<?php $term_content = get_the_terms(get_the_ID(), 'grau-da-evidencia'); if(!empty($term_content)): ?>
@@ -111,6 +110,7 @@ get_header(); ?>
 					</p>
 				</div>
 
+				<?php if ( function_exists('show_yop_poll_template') ) { show_yop_poll_template(); } ?>
 				
 				<div class="content">
 					<p><?php the_content(); ?></p>
