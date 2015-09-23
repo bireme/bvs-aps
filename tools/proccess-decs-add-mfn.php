@@ -61,12 +61,19 @@ foreach($xml->channel->item as $item) {
                 $records = $xml_service->xpath('/decsvmx/decsws_response/record_list/record');
                 foreach($records as $record) {
 
+                    $qid = array();
+
+                    foreach($record->allowable_qualifier_list->allowable_qualifier as $qualifier) {
+                        $qid[(string) $qualifier] = (int) $qualifier['id'];
+                    }
+
                     // pega o mfn, caso exista
                     if($record->attributes()->mfn) {
                         $mfn = (int) $record->attributes()->mfn;
 
                         // atribui o mfn a estrutura
                         $data[$key]['mfn'] = $mfn;
+                        $data[$key]['qid'] = $qid;
                         
                         // faz um replace no arquivo $file
                         $count_file = 0;
@@ -81,13 +88,10 @@ foreach($xml->channel->item as $item) {
                             // print_r($data);
                         }
                     }
-                }
-                
+                }           
             }
         }
     }
-
-
 } 
 print "TOTAL: $count\n";
 print "ERRO: $erro\n";
