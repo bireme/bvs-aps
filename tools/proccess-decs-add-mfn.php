@@ -60,6 +60,15 @@ foreach($xml->channel->item as $item) {
                 // xpath do mfn
                 $records = $xml_service->xpath('/decsvmx/decsws_response/record_list/record');
                 foreach($records as $record) {
+                  
+                    $qid = array();
+
+                    if ( array_key_exists( 'qualifier', $value ) ) {
+                        foreach($record->allowable_qualifier_list->allowable_qualifier as $qualifier) {
+                            if(in_array((string) $qualifier, $value['qualifier']))
+                                $qid[(string) $qualifier] = (int) $qualifier['id'];
+                        }
+                    }
 
                     // pega o mfn, caso exista
                     if($record->attributes()->mfn) {
@@ -67,6 +76,9 @@ foreach($xml->channel->item as $item) {
 
                         // atribui o mfn a estrutura
                         $data[$key]['mfn'] = $mfn;
+                        
+                        // atribui os ids dos qualificadores
+                        if ( $qid ) $data[$key]['qid'] = $qid;
                         
                         // faz um replace no arquivo $file
                         $count_file = 0;
