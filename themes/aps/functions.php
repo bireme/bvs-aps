@@ -424,6 +424,11 @@ add_theme_support( 'post-thumbnails' );
 add_image_size( 'single-thumb', 500, 100, true ); // (cropped)
 add_image_size( 'single-thumb-square', 500, 300, true ); // (cropped)
 
+function init_flush_rewrite_rules() {
+    flush_rewrite_rules();
+}
+add_action( 'init', 'init_flush_rewrite_rules', 10 );
+
 if ( is_plugin_active( 'yop-poll/yop_poll.php' ) ) {
     require_once( 'poll/poll.php' );
 }
