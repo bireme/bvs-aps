@@ -136,23 +136,24 @@ p {
 .widget_sow-post-carousel{
 	margin-bottom: 30px !important;;
 }
-.widget_links {
+#nav_menu-2 {
 	width: 33%;
-	float: left;
+	float: right;
+	text-align:left !important;
 }
-.widget_links > ul {
+#nav_menu-2 > ul {
 	padding: 10px;
 }
-.widget_links > ul li {
+#nav_menu-2 > ul li {
 	padding: 3px 0;
 }
-.widget_links > ul a, .item ul li a, .temas ul li a {
+.menu-acesso-direto-2-container ul li a, .item ul li a, .temas ul li a {
 	font-weight: normal;
 	background: url(img/arrow.png) no-repeat 0 2px;
 	padding-left: 20px;
 	line-height: 15pt;
 }
-.widget_links > h2, .temas h2 {
+#nav_menu-2 > h2, .temas h2 {
 	font-weight: bold;
 	padding: 10px 0;
 	font-size: 14pt;
@@ -161,12 +162,17 @@ p {
 	margin: 0 10px;
 	text-align: center; 
 }
-.widget_links ul {
+#nav_menu-2 ul {
 	margin: 10px 0 40px 0;
 }
-.widget_links > p {
-	text-align: center;
-	margin: 0 0 20px 0;
+#menu-acesso-direto-2 li {
+ 	text-align: left !important;
+    font-size: 11pt;
+ 	text-transform: none; 
+    padding: 0px 0px;
+    border-bottom: 1px solid #78B421;
+	    width: 90%;
+		border-right:0px;
 }
 .widget_metaslider_widget {
 	margin: 40px 0 60px 0;
@@ -356,7 +362,7 @@ footer .container > div {
 	clear: both;
 }
 .archive.aps .item h3 {
-	margin: 0 0 -10px 0;
+	margin: 0 0 10px 0;
 	font-size: 10pt;
 	color: #90C3DD;
 }
@@ -379,7 +385,7 @@ footer .container > div {
 #languages_list li:last-child {
 	border-right: none;
 }
-.home .widget_links ul, .temas ul, .item ul { list-style-type: none; }
+.home #nav_menu-2 ul, .temas ul, .item ul { list-style-type: none; }
 .dados{
 	background: #ecfbfd none repeat scroll 0 0;
 	clear: both;
@@ -433,3 +439,34 @@ table td{
 p {margin-bottom: 15px;}
 
 li{margin-bottom: 15px;}
+
+#rss-2{
+    width: 60%;
+	line-height: 19px;
+	float:left;
+}
+#rss-2 ul{
+	margin-top: 15px;
+}
+#text-4{width:100px;}
+#text-4 img{
+	margin: 0 0px 20px 230px;
+}
+.widget_rss > h2, .temas h2 {
+    font-weight: bold;
+    padding: 10px 0;
+    font-size: 14pt;
+    color: #78B421;
+    border-bottom: 1px solid #78B421;
+    margin: 0 10px;
+    text-align: center;
+}
+.temas h2 {
+	    text-align: left;
+	}
+
+#rss-2 ul li{
+	list-style:none;}
+#rss-2 .rsswidget{
+	color: #78B421;
+	}
