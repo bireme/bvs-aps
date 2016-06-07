@@ -84,7 +84,7 @@ get_header(); ?>
 			<div class="clear"></div>
 		</div>
 
-		<div class="block">
+		<!--<div class="block">
 			<h2><?php _e("CIAP2", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($ciap2 as $item): ?>
@@ -110,9 +110,9 @@ get_header(); ?>
 				<?php endforeach; ?>
 			</ul>
 			<div class="clear"></div>
-		</div>
+		</div>-->
 
-		<div class="block">
+		<!--<div class="block">
 			<h2><?php _e("Grau da Evidência", 'bvsaps'); ?></h2>
 			<ul>
 				<?php foreach($grau_da_evidencia as $item): ?>
@@ -139,7 +139,7 @@ get_header(); ?>
 			</ul>
 			<div class="clear"></div>
 		</div>
-
+ -->
 		<div class="block">
 			<h2><?php _e("Teleconsultores", 'bvsaps'); ?></h2>
 			<ul>
