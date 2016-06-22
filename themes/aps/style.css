@@ -386,7 +386,7 @@ footer .container > div {
 #languages_list li:last-child {
 	border-right: none;
 }
-.home #nav_menu-2 ul, .home #nav_menu-3 ul, .home #nav_menu ul, .temas ul, .item ul { list-style-type: none; }
+.home #nav_menu-2 ul, .home #nav_menu-3 ul, .home #nav_menu ul, .temas ul, .item ul { list-style-type: circle} 
 .dados{
 	background: #ecfbfd none repeat scroll 0 0;
 	clear: both;
