@@ -375,7 +375,7 @@ footer .container > div {
 #languages_list {
 	width: 120px;
 	float: right;
-	display:none;
+	
 }
 #languages_list li {
 	display: inline-block;
