@@ -136,15 +136,16 @@ p {
 .widget_sow-post-carousel{
 	margin-bottom: 30px !important;;
 }
-#nav_menu, #nav_menu-2, #nav_menu-3 {
+#nav_menu, #nav_menu-2, #nav_menu-3, .widget_nav_menu {
 	width: 33%;
 	float: right;
 	text-align:left !important;
+
 }
-#nav_menu-2 > ul, #nav_menu > ul, #nav_menu-3 > ul  {
+#nav_menu-2 > ul, #nav_menu > ul, #nav_menu-3 > ul, .widget_nav_menu > ul  {
 	padding: 10px;
 }
-#nav_menu-2 > ul li, #nav_menu > ul li, #nav_menu-3 > ul li {
+#nav_menu-2 > ul li, #nav_menu > ul li, #nav_menu-3 > ul li, widget_nav_menu > ul li {
 	padding: 3px 0;
 }
 .menu-acesso-direto-container ul li a, .menu-acesso-direto-2-container ul li a, .item ul li a, .temas ul li a {
@@ -153,7 +154,7 @@ p {
 	padding-left: 20px;
 	line-height: 15pt;
 }
-#nav_menu-2 > h2, #nav_menu > h2, #nav_menu-3 > h2, .temas h2 {
+#nav_menu-2 > h2, #nav_menu > h2, #nav_menu-3 > h2, .temas h2, .widget_nav_menu > h2 {
 	font-weight: bold;
 	padding: 10px 0;
 	font-size: 14pt;
@@ -162,7 +163,7 @@ p {
 	margin: 0 10px;
 	text-align: center; 
 }
-#nav_menu-2 ul, #nav_menu-3 ul , #nav_menu ul  {
+#nav_menu-2 ul, #nav_menu-3 ul , #nav_menu ul, .widget_nav_menu > ul   {
 	margin: 10px 0 40px 0;
 }
 #menu-acesso-direto-2 li,#menu-acesso-direto li, #menu-acesso-direto-3 li {
