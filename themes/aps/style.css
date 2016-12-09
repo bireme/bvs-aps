@@ -441,12 +441,12 @@ p {margin-bottom: 15px;}
 
 li{margin-bottom: 15px;}
 
-#rss-2{
+#rss-2, .widget_rss{
     width: 60%;
 	line-height: 19px;
 	float:left;
 }
-#rss-2 ul{
+#rss-2 ul, .widget_rss ul{
 	margin-top: 15px;
 }
 #text-4{width:100px;}
@@ -466,8 +466,9 @@ li{margin-bottom: 15px;}
 	    text-align: left;
 	}
 
-#rss-2 ul li{
-	list-style:none;}
-#rss-2 .rsswidget{
+#rss-2 ul li, .widget_rss ul li{
+	list-style:none; }
+	
+#rss-2 .rsswidget, .widget_rss .rsswidget{
 	color: #78B421;
 	}
