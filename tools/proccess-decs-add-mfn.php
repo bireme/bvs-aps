@@ -24,6 +24,8 @@ $xml = simplexml_load_file($file) or die("Error: Cannot create object");;
 $count = 0;
 $alterados = 0;
 $erro = 0;
+$nomfn = 0;
+
 foreach($xml->channel->item as $item) {
     
     foreach ($item->children('wp', true) as $postmeta) {
@@ -50,15 +52,33 @@ foreach($xml->channel->item as $item) {
                 if(array_key_exists('mfn', $data[$key])) {
                     continue;
                 }
-            
-                // consome o webservice pelo tree_id
-                $service = file_get_contents('http://decs.bvs.br/cgi-bin/mx/cgi=@vmx/decs/?tree_id=' . $id);
+
+                if ( isset($argv[2]) && !empty($argv[2]) ) {
+                    if ( in_array($argv[2], array('-e', '--exact')) ) {
+                        // consome o webservice pelo descritor exato
+                        $service = file_get_contents('http://decs.bvs.br/cgi-bin/mx/cgi=@vmx/decs/?bool=101%20' . urlencode($term));
+                    } elseif( in_array($argv[2], array('-s', '--synonym')) ) {
+                        // consome o webservice pelo sinônimo exato
+                        $service = file_get_contents('http://decs.bvs.br/cgi-bin/mx/cgi=@vmx/decs/?bool=102%20' . urlencode($term));
+                    } else {
+                        // consome o webservice pelo tree_id
+                        $service = file_get_contents('http://decs.bvs.br/cgi-bin/mx/cgi=@vmx/decs/?tree_id=' . $id);
+                    }
+                } else {
+                    // consome o webservice pelo tree_id
+                    $service = file_get_contents('http://decs.bvs.br/cgi-bin/mx/cgi=@vmx/decs/?tree_id=' . $id);
+                }
 
                 // parseia o xml consumido
                 $xml_service = simplexml_load_string($service);
 
                 // xpath do mfn
                 $records = $xml_service->xpath('/decsvmx/decsws_response/record_list/record');
+
+                if (!$records) {
+                    $nomfn++;
+                }
+
                 foreach($records as $record) {
                   
                     $qid = array();
@@ -90,7 +110,6 @@ foreach($xml->channel->item as $item) {
                         } else {
                             $alterados++;
                             file_put_contents($file, $file_content);
-                            // print_r($data);
                         }
                     }
                 }
@@ -98,9 +117,9 @@ foreach($xml->channel->item as $item) {
             }
         }
     }
+}
 
-
-} 
-print "TOTAL: $count\n";
+print "\nTOTAL: $count\n";
 print "ERRO: $erro\n";
 print "ALTERADOS: $alterados\n";
+print "SEM MFN: $nomfn\n";
