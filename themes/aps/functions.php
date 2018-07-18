@@ -429,6 +429,11 @@ function init_flush_rewrite_rules() {
 }
 add_action( 'init', 'init_flush_rewrite_rules', 10 );
 
+function remove_schedule_delete() {
+    remove_action( 'wp_scheduled_delete', 'wp_scheduled_delete' );
+}
+add_action( 'init', 'remove_schedule_delete' );
+
 if ( is_plugin_active( 'yop-poll/yop_poll.php' ) ) {
     require_once( 'poll/poll.php' );
 }
